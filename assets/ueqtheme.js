@@ -1,77 +1,103 @@
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
 
 (function () {
-  'use strict';
+  "use strict";
 
-  var Cookie = /*#__PURE__*/function () {
+  var Cookie = /*#__PURE__*/ (function () {
     function Cookie(name) {
       _classCallCheck(this, Cookie);
 
       this._name = name;
     }
 
-    _createClass(Cookie, [{
-      key: "setCookie",
-      value: function setCookie(value, days) {
-        var expires = "";
+    _createClass(Cookie, [
+      {
+        key: "setCookie",
+        value: function setCookie(value, days) {
+          var expires = "";
 
-        if (days) {
-          var date = new Date();
-          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-          expires = "; expires=" + date.toUTCString();
-        }
-
-        document.cookie = this._name + "=" + (value || "") + expires + "; path=/";
-      }
-    }, {
-      key: "getCookie",
-      value: function getCookie() {
-        var nameEQ = this._name + "=";
-        var ca = document.cookie.split(';');
-
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1, c.length);
+          if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
           }
 
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
+          document.cookie =
+            this._name + "=" + (value || "") + expires + "; path=/";
+        },
+      },
+      {
+        key: "getCookie",
+        value: function getCookie() {
+          var nameEQ = this._name + "=";
+          var ca = document.cookie.split(";");
 
-        return null;
-      }
-    }, {
-      key: "eraseCookie",
-      value: function eraseCookie(name) {
-        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      }
-    }]);
+          for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+
+            while (c.charAt(0) == " ") {
+              c = c.substring(1, c.length);
+            }
+
+            if (c.indexOf(nameEQ) == 0)
+              return c.substring(nameEQ.length, c.length);
+          }
+
+          return null;
+        },
+      },
+      {
+        key: "eraseCookie",
+        value: function eraseCookie(name) {
+          document.cookie =
+            name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+        },
+      },
+    ]);
 
     return Cookie;
-  }();
+  })();
 
   var timeACC = function timeACC() {
-    var t_aCookie = new Cookie('_shopify_user_time_access');
-    var getUserCookie = new Cookie('_shopify_random_user_key');
+    var t_aCookie = new Cookie("_shopify_user_time_access");
+    var getUserCookie = new Cookie("_shopify_random_user_key");
     var getUserCookieValue = getUserCookie.getCookie();
-    var displayElement = document.getElementById('time-access-value');
-    var policyPages = ['terms-and-conditions', 'policy'];
+    var displayElement = document.getElementById("time-access-value");
+    var policyPages = ["terms-and-conditions", "policy"];
     var pathName = window.location.pathname;
 
-    if (t_aCookie.getCookie() && !policyPages.some(function (v) {
-      return pathName.includes(v);
-    })) {
-      var serverStatusElement = document.getElementById('server-status');
-      var allElements = document.getElementById('MainContent');
+    if (
+      t_aCookie.getCookie() &&
+      !policyPages.some(function (v) {
+        return pathName.includes(v);
+      })
+    ) {
+      var serverStatusElement = document.getElementById("server-status");
+      var allElements = document.getElementById("MainContent");
       allElements.remove();
-      var blockElement = document.querySelector('.ueq-ta_container');
+      var blockElement = document.querySelector(".ueq-ta_container");
       blockElement.style.display = "block";
-      var userID = document.getElementById('ueq-ta_user');
+      var userID = document.getElementById("ueq-ta_user");
       userID.innerHTML = getUserCookieValue;
       displayElement.innerHTML = "00:00";
       displayElement.style.color = "#ee220c";
@@ -81,29 +107,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     if (!t_aCookie.getCookie() == true) {
       var countdown = function countdown() {
-        var time = document.getElementById('time-access-value').innerHTML;
-        var timeArray = time.split(':');
+        var time = document.getElementById("time-access-value").innerHTML;
+        var timeArray = time.split(":");
         seconds = timeToSeconds(timeArray);
 
-        if (seconds == '') {
-          temp = document.getElementById('time-access-value');
+        if (seconds == "") {
+          temp = document.getElementById("time-access-value");
           temp.innerHTML = display;
-          time = document.getElementById('time-access-value').innerHTML;
-          timeArray = time.split(':');
+          time = document.getElementById("time-access-value").innerHTML;
+          timeArray = time.split(":");
           seconds = timeToSeconds(timeArray);
         }
 
         seconds--;
-        temp = document.getElementById('time-access-value');
+        temp = document.getElementById("time-access-value");
         temp.innerHTML = secondsToTime(seconds);
         var timeoutMyOswego = setTimeout(countdown, 1000);
-        var valueForEndingSoon = document.getElementById("time-access-end").value;
+        var valueForEndingSoon =
+          document.getElementById("time-access-end").value;
 
         if (secondsToTime(seconds) === valueForEndingSoon) {
           displayElement.style.color = "#ee220c";
         }
 
-        if (secondsToTime(seconds) === '00:00') {
+        if (secondsToTime(seconds) === "00:00") {
           clearTimeout(timeoutMyOswego);
           t_aCookie.setCookie(true, 1);
           window.location.reload();
@@ -119,16 +146,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var secondsToTime = function secondsToTime(secs) {
         var divisor_for_minutes = secs % (60 * 60);
         var minutes = Math.floor(divisor_for_minutes / 60);
-        minutes = minutes < 10 ? '0' + minutes : minutes;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
         var divisor_for_seconds = divisor_for_minutes % 60;
         var seconds = Math.ceil(divisor_for_seconds);
-        seconds = seconds < 10 ? '0' + seconds : seconds;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
         return "".concat(minutes, ":").concat(seconds);
       };
 
       var seconds;
       var temp;
-      var display = document.getElementById('time-access-value').innerHTML;
+      var display = document.getElementById("time-access-value").innerHTML;
       countdown();
     }
   };
@@ -138,17 +165,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   };
 
   var randomUserK = function randomUserK() {
-    var randomC_userK = new Cookie('_shopify_random_user_key');
-    var displayElement = document.getElementById('random-id-value');
+    var randomC_userK = new Cookie("_shopify_random_user_key");
+    var displayElement = document.getElementById("random-id-value");
 
     if (!randomC_userK.getCookie()) {
       var randomID = function randomID(length) {
         var result = "";
-        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var characters =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         var charactersLength = characters.length;
 
         for (var i = 0; i < length; i++) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          result += characters.charAt(
+            Math.floor(Math.random() * charactersLength)
+          );
         }
 
         return result;
@@ -172,28 +202,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   };
 
   var ueqTerminal = function ueqTerminal() {
-    var t_aCookie = new Cookie('_shopify_user_time_access');
+    var t_aCookie = new Cookie("_shopify_user_time_access");
     var t_aCookieValue = t_aCookie.getCookie();
 
     if (!t_aCookieValue) {
-      var parentForModal = document.querySelector('.ueq-menu-container');
-      var menuTitleButtons = document.querySelectorAll('.ueq-menu-title');
-      var terminalTypeSpeed = document.getElementById('terminal-type-speed').value;
-      var terminalLineSpeed = document.getElementById('terminal-line-speed').value;
-      var cookieName = new Cookie('_shopify_random_user_key');
+      var parentForModal = document.querySelector(".ueq-menu-container");
+      var menuTitleButtons = document.querySelectorAll(".ueq-menu-title");
+      var terminalTypeSpeed = document.getElementById(
+        "terminal-type-speed"
+      ).value;
+      var terminalLineSpeed = document.getElementById(
+        "terminal-line-speed"
+      ).value;
+      var cookieName = new Cookie("_shopify_random_user_key");
       var getUserKeyFromCookie = cookieName.getCookie();
 
       var createElement = function createElement(att) {
         var newElement = document.createElement("div");
         newElement.setAttribute("id", "ueq-terminal");
         newElement.setAttribute("data-menu-terminal", att);
-        var beforeElement = document.querySelector("[data-menu='".concat(att, "']"));
+        var beforeElement = document.querySelector(
+          "[data-menu='".concat(att, "']")
+        );
         beforeElement.after(newElement);
       };
 
       var deleteElement = function deleteElement(att, type) {
         if (type === "terminal") {
-          var el = document.querySelector("[data-menu-terminal='".concat(att, "']"));
+          var el = document.querySelector(
+            "[data-menu-terminal='".concat(att, "']")
+          );
           el.remove();
         } else if (type === "modal") {
           var _el = document.querySelector("#".concat(att, "-modal"));
@@ -211,18 +249,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         if (attLowerCase === "admin log") {
           inputId = "admin_log";
-          inputTitleValue = document.getElementById("".concat(inputId, "_modal_title")).value;
+          inputTitleValue = document.getElementById(
+            "".concat(inputId, "_modal_title")
+          ).value;
           newModalElement.setAttribute("class", "ueq-modal-container");
           newModalElement.setAttribute("id", "".concat(inputId, "-modal"));
         } else {
           inputId = attLowerCase;
-          inputTitleValue = document.getElementById("".concat(inputId, "_modal_title")).value;
-          inputTextAreaValue = document.getElementById("".concat(inputId, "_modal_textarea")).value; // Modal Container
+          inputTitleValue = document.getElementById(
+            "".concat(inputId, "_modal_title")
+          ).value;
+          inputTextAreaValue = document.getElementById(
+            "".concat(inputId, "_modal_textarea")
+          ).value; // Modal Container
 
           newModalElement.setAttribute("class", "ueq-modal-container");
           newModalElement.setAttribute("id", "".concat(attLowerCase, "-modal"));
         } // Modal wrapper
-
 
         var modalWrapper = document.createElement("div");
         modalWrapper.setAttribute("class", "ueq-modal-wrapper");
@@ -263,7 +306,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             var _pBody = document.createElement("p");
 
-            var pbodyText = document.createTextNode("".concat(inputTextAreaValue));
+            var pbodyText = document.createTextNode(
+              "".concat(inputTextAreaValue)
+            );
 
             _pBody.appendChild(pbodyText);
 
@@ -272,14 +317,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         if (attLowerCase === "admin log") {
-          var getAdminLogLinks = document.querySelectorAll('#admin-log-link');
+          var getAdminLogLinks = document.querySelectorAll("#admin-log-link");
           getAdminLogLinks.forEach(function (element) {
             var splitValueArray = element.value.split("-");
             var aBody = document.createElement("a");
             aBody.href = splitValueArray[1];
-            aBody.textContent = "C:\\".concat(getUserKeyFromCookie, "\\").concat(splitValueArray[0]);
-            aBody.setAttribute('class', 'aG-log-link');
-            aBody.setAttribute('target', '_blank');
+            aBody.textContent = "C:\\"
+              .concat(getUserKeyFromCookie, "\\")
+              .concat(splitValueArray[0]);
+            aBody.setAttribute("class", "aG-log-link");
+            aBody.setAttribute("target", "_blank");
             modalBody.appendChild(aBody);
           });
         }
@@ -290,257 +337,311 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
 
       var openTerminalAnimation = function openTerminalAnimation(title) {
-        var includesAbout = title.includes('ABOUT');
-        var includesAdminLog = title.includes('ADMIN LOG');
+        var includesAbout = title.includes("ABOUT");
+        var includesAdminLog = title.includes("ADMIN LOG");
         var titleWithoutChar = title.replace(/[^a-zA-Z ]/g, "");
 
-        if (includesAbout && !document.querySelector("[data-menu-terminal='ABOUT']")) {
+        if (
+          includesAbout &&
+          !document.querySelector("[data-menu-terminal='ABOUT']")
+        ) {
           createElement(titleWithoutChar);
 
           if (document.querySelector("[data-menu-terminal='ADMIN LOG']")) {
-            deleteElement('ADMIN LOG', 'terminal');
-            new Termynal('#ueq-terminal', {
+            deleteElement("ADMIN LOG", "terminal");
+            new Termynal("#ueq-terminal", {
               typeDelay: terminalTypeSpeed,
               lineDelay: terminalLineSpeed,
-              lineData: [{
-                value: 'ABOUT'
-              }, {
-                value: 'ACCESS TO RESTRICED DATA'
-              }, {
-                type: 'input',
-                prompt: "PASSENGER ID:",
-                value: "".concat(getUserKeyFromCookie)
-              }, {
-                type: 'input',
-                prompt: 'PASSWORD:',
-                value: '**********'
-              }, {
-                value: 'SUCCESSFULLY LOGGED IN'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                type: 'input',
-                prompt: "$",
-                value: 'ABOUT OF uE - JAN 23 - 19:16'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                value: 'ACCESS GRANTED'
-              }],
+              lineData: [
+                {
+                  value: "ABOUT",
+                },
+                {
+                  value: "ACCESS TO RESTRICED DATA",
+                },
+                {
+                  type: "input",
+                  prompt: "PASSENGER ID:",
+                  value: "".concat(getUserKeyFromCookie),
+                },
+                {
+                  type: "input",
+                  prompt: "PASSWORD:",
+                  value: "**********",
+                },
+                {
+                  value: "SUCCESSFULLY LOGGED IN",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  type: "input",
+                  prompt: "$",
+                  value: "ABOUT OF uE - JAN 23 - 19:16",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  value: "ACCESS GRANTED",
+                },
+              ],
               callback: function callback() {
                 var aboutModal = createModal(titleWithoutChar);
                 parentForModal.appendChild(aboutModal);
-                $('.close-modal').click(function () {
+                $(".close-modal").click(function () {
                   if (this.id === "about") {
-                    deleteElement('ABOUT', 'terminal');
-                    deleteElement(this.id, 'modal');
+                    deleteElement("ABOUT", "terminal");
+                    deleteElement(this.id, "modal");
                   }
                 });
-              }
+              },
             });
           } else {
-            new Termynal('#ueq-terminal', {
+            new Termynal("#ueq-terminal", {
               typeDelay: terminalTypeSpeed,
               lineDelay: terminalLineSpeed,
-              lineData: [{
-                value: 'ABOUT'
-              }, {
-                value: 'ACCESS TO RESTRICED DATA'
-              }, {
-                type: 'input',
-                prompt: "PASSENGER ID:",
-                value: "".concat(getUserKeyFromCookie)
-              }, {
-                type: 'input',
-                prompt: 'PASSWORD:',
-                value: '**********'
-              }, {
-                value: 'SUCCESSFULLY LOGGED IN'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                type: 'input',
-                prompt: "$",
-                value: 'ABOUT OF uE - JAN 23 - 19:16'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                value: 'ACCESS GRANTED'
-              }],
+              lineData: [
+                {
+                  value: "ABOUT",
+                },
+                {
+                  value: "ACCESS TO RESTRICED DATA",
+                },
+                {
+                  type: "input",
+                  prompt: "PASSENGER ID:",
+                  value: "".concat(getUserKeyFromCookie),
+                },
+                {
+                  type: "input",
+                  prompt: "PASSWORD:",
+                  value: "**********",
+                },
+                {
+                  value: "SUCCESSFULLY LOGGED IN",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  type: "input",
+                  prompt: "$",
+                  value: "ABOUT OF uE - JAN 23 - 19:16",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  value: "ACCESS GRANTED",
+                },
+              ],
               callback: function callback() {
                 var aboutModal = createModal(titleWithoutChar);
                 parentForModal.appendChild(aboutModal);
-                $('.close-modal').click(function () {
+                $(".close-modal").click(function () {
                   if (this.id === "about") {
-                    deleteElement('ABOUT', 'terminal');
-                    deleteElement(this.id, 'modal');
+                    deleteElement("ABOUT", "terminal");
+                    deleteElement(this.id, "modal");
                   }
                 });
-              }
+              },
             });
           }
         }
 
-        if (includesAdminLog && !document.querySelector("[data-menu-terminal='ADMIN LOG']")) {
+        if (
+          includesAdminLog &&
+          !document.querySelector("[data-menu-terminal='ADMIN LOG']")
+        ) {
           createElement(title.replace(/[^a-zA-Z ]/g, ""));
 
           if (document.querySelector("[data-menu-terminal='ABOUT']")) {
-            deleteElement('ABOUT', 'terminal');
-            new Termynal('#ueq-terminal', {
+            deleteElement("ABOUT", "terminal");
+            new Termynal("#ueq-terminal", {
               typeDelay: terminalTypeSpeed,
               lineDelay: terminalLineSpeed,
-              lineData: [{
-                value: 'ADMING_LOG'
-              }, {
-                value: 'ACCESS TO RESTRICED DATA'
-              }, {
-                type: 'input',
-                prompt: "PASSENGER ID:",
-                value: "".concat(getUserKeyFromCookie)
-              }, {
-                type: 'input',
-                prompt: 'PASSWORD:',
-                value: '**********'
-              }, {
-                value: 'SUCCESSFULLY LOGGED IN'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                type: 'input',
-                prompt: "$",
-                value: 'ADMING_LOG OF uE - JAN 23 - 19:16'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                value: 'ACCESS GRANTED'
-              }],
+              lineData: [
+                {
+                  value: "ADMING_LOG",
+                },
+                {
+                  value: "ACCESS TO RESTRICED DATA",
+                },
+                {
+                  type: "input",
+                  prompt: "PASSENGER ID:",
+                  value: "".concat(getUserKeyFromCookie),
+                },
+                {
+                  type: "input",
+                  prompt: "PASSWORD:",
+                  value: "**********",
+                },
+                {
+                  value: "SUCCESSFULLY LOGGED IN",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  type: "input",
+                  prompt: "$",
+                  value: "ADMING_LOG OF uE - JAN 23 - 19:16",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  value: "ACCESS GRANTED",
+                },
+              ],
               callback: function callback() {
                 var adminModal = createModal(titleWithoutChar);
                 parentForModal.appendChild(adminModal);
-                $('.close-modal').click(function () {
+                $(".close-modal").click(function () {
                   if (this.id === "admin_log") {
-                    deleteElement('ADMIN LOG', 'terminal');
-                    deleteElement(this.id, 'modal');
+                    deleteElement("ADMIN LOG", "terminal");
+                    deleteElement(this.id, "modal");
                   }
                 });
-              }
+              },
             });
           } else {
-            new Termynal('#ueq-terminal', {
+            new Termynal("#ueq-terminal", {
               typeDelay: terminalTypeSpeed,
               lineDelay: terminalLineSpeed,
-              lineData: [{
-                value: 'ADMING_LOG'
-              }, {
-                value: 'ACCESS TO RESTRICED DATA'
-              }, {
-                type: 'input',
-                prompt: "PASSENGER ID:",
-                value: "".concat(getUserKeyFromCookie)
-              }, {
-                type: 'input',
-                prompt: 'PASSWORD:',
-                value: '**********'
-              }, {
-                value: 'SUCCESSFULLY LOGGED IN'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                type: 'input',
-                prompt: "$",
-                value: 'ADMING_LOG OF uE - JAN 23 - 19:16'
-              }, {
-                type: 'progress',
-                progressChar: '█',
-                progressLength: 20
-              }, {
-                value: 'ACCESS GRANTED'
-              }],
+              lineData: [
+                {
+                  value: "ADMING_LOG",
+                },
+                {
+                  value: "ACCESS TO RESTRICED DATA",
+                },
+                {
+                  type: "input",
+                  prompt: "PASSENGER ID:",
+                  value: "".concat(getUserKeyFromCookie),
+                },
+                {
+                  type: "input",
+                  prompt: "PASSWORD:",
+                  value: "**********",
+                },
+                {
+                  value: "SUCCESSFULLY LOGGED IN",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  type: "input",
+                  prompt: "$",
+                  value: "ADMING_LOG OF uE - JAN 23 - 19:16",
+                },
+                {
+                  type: "progress",
+                  progressChar: "█",
+                  progressLength: 20,
+                },
+                {
+                  value: "ACCESS GRANTED",
+                },
+              ],
               callback: function callback() {
                 var adminModal = createModal(titleWithoutChar);
                 parentForModal.appendChild(adminModal);
-                $('.close-modal').click(function () {
+                $(".close-modal").click(function () {
                   if (this.id === "admin_log") {
-                    deleteElement('ADMIN LOG', 'terminal');
-                    deleteElement(this.id, 'modal');
+                    deleteElement("ADMIN LOG", "terminal");
+                    deleteElement(this.id, "modal");
                   }
                 });
-              }
+              },
             });
           }
         }
       };
 
       menuTitleButtons.forEach(function (element) {
-        element.addEventListener('click', function () {
+        element.addEventListener("click", function () {
           var elementValue = element.innerHTML;
-          var includesAbout = elementValue.includes('ABOUT');
-          var includesAdminLog = elementValue.includes('ADMIN LOG');
-          var includesShop = elementValue.includes('SHOP');
-          var includesContact = elementValue.includes('CONTACT');
+          var includesAbout = elementValue.includes("ABOUT");
+          var includesAdminLog = elementValue.includes("ADMIN LOG");
+          var includesShop = elementValue.includes("SHOP");
+          var includesContact = elementValue.includes("CONTACT");
           var titleWithoutChar = elementValue.replace(/[^a-zA-Z ]/g, "");
 
           if (includesAbout) {
-            if (document.querySelector('#admin_log-modal')) {
-              deleteElement('admin_log', 'modal');
-            } else if (document.querySelector('#shop-modal')) {
-              deleteElement('shop', 'modal');
-            } else if (document.querySelector('#contact-modal')) {
-              deleteElement('contact', 'modal');
+            if (document.querySelector("#admin_log-modal")) {
+              deleteElement("admin_log", "modal");
+            } else if (document.querySelector("#shop-modal")) {
+              deleteElement("shop", "modal");
+            } else if (document.querySelector("#contact-modal")) {
+              deleteElement("contact", "modal");
             }
 
             openTerminalAnimation(elementValue);
           } else if (includesAdminLog) {
-            if (document.querySelector('#about-modal')) {
-              deleteElement('about', 'modal');
-            } else if (document.querySelector('#shop-modal')) {
-              deleteElement('shop', 'modal');
-            } else if (document.querySelector('#contact-modal')) {
-              deleteElement('contact', 'modal');
+            if (document.querySelector("#about-modal")) {
+              deleteElement("about", "modal");
+            } else if (document.querySelector("#shop-modal")) {
+              deleteElement("shop", "modal");
+            } else if (document.querySelector("#contact-modal")) {
+              deleteElement("contact", "modal");
             }
 
             openTerminalAnimation(elementValue);
           } else if (includesShop) {
-            if (document.querySelector('#admin_log-modal')) {
-              deleteElement('ADMIN LOG', 'terminal');
-              deleteElement('admin_log', 'modal');
-            } else if (document.querySelector('#about-modal')) {
-              deleteElement('ABOUT', 'terminal');
-              deleteElement('about', 'modal');
-            } else if (document.querySelector('#contact-modal')) {
-              deleteElement('contact', 'modal');
+            if (document.querySelector("#admin_log-modal")) {
+              deleteElement("ADMIN LOG", "terminal");
+              deleteElement("admin_log", "modal");
+            } else if (document.querySelector("#about-modal")) {
+              deleteElement("ABOUT", "terminal");
+              deleteElement("about", "modal");
+            } else if (document.querySelector("#contact-modal")) {
+              deleteElement("contact", "modal");
             }
 
-            if (!document.querySelector('#shop-modal') && !document.querySelector("[data-menu-terminal='ABOUT']") && !document.querySelector("[data-menu-terminal='ADMIN LOG']")) {
+            if (
+              !document.querySelector("#shop-modal") &&
+              !document.querySelector("[data-menu-terminal='ABOUT']") &&
+              !document.querySelector("[data-menu-terminal='ADMIN LOG']")
+            ) {
               var shopModal = createModal(titleWithoutChar);
               parentForModal.appendChild(shopModal);
             }
           } else if (includesContact) {
-            if (document.querySelector('#admin_log-modal')) {
-              deleteElement('ADMIN LOG', 'terminal');
-              deleteElement('admin_log', 'modal');
-            } else if (document.querySelector('#about-modal')) {
-              deleteElement('ABOUT', 'terminal');
-              deleteElement('about', 'modal');
-            } else if (document.querySelector('#shop-modal')) {
-              deleteElement('shop', 'modal');
+            if (document.querySelector("#admin_log-modal")) {
+              deleteElement("ADMIN LOG", "terminal");
+              deleteElement("admin_log", "modal");
+            } else if (document.querySelector("#about-modal")) {
+              deleteElement("ABOUT", "terminal");
+              deleteElement("about", "modal");
+            } else if (document.querySelector("#shop-modal")) {
+              deleteElement("shop", "modal");
             }
 
-            if (!document.querySelector('#contact-modal') && !document.querySelector("[data-menu-terminal='ABOUT']") && !document.querySelector("[data-menu-terminal='ADMIN LOG']")) {
+            if (
+              !document.querySelector("#contact-modal") &&
+              !document.querySelector("[data-menu-terminal='ABOUT']") &&
+              !document.querySelector("[data-menu-terminal='ADMIN LOG']")
+            ) {
               var contactModal = createModal(titleWithoutChar);
               parentForModal.appendChild(contactModal);
             }
@@ -548,9 +649,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log("PASSENGER DENIED");
           }
 
-          $('.close-modal').click(function () {
+          $(".close-modal").click(function () {
             if (this.id != "admin_log" || this.id != "about") {
-              deleteElement(this.id, 'modal');
+              deleteElement(this.id, "modal");
             }
           });
         });
@@ -562,8 +663,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     ueqTerminal();
   };
 
-  window.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname == '/') {
+  window.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname == "/") {
       init$2();
       init();
     }
