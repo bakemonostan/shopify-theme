@@ -4,7 +4,7 @@
       "type": "ueq-header",
       "settings": {
         "copyright_statement": "Copyright 2022 ultrA electriquE industries all rights reserved",
-        "title": "<h1 class=\"title\" style=\"font-family:'Zekton' !important;\">\n    <span class=\"title-begin\">ultr</span><span class=\"title-letters\">A</span> <span class=\"title-begin\">electriqu</span><span class=\"title-letters\">E</span>\n    </h1>",
+        "title": "<h1 class=\"title\" style=\"font-family:'Zekton' !important;\">\n    <span class=\"title-begin\">ultr<\/span><span class=\"title-letters\">A<\/span> <span class=\"title-begin\">electriqu<\/span><span class=\"title-letters\">E<\/span>\n    <\/h1>",
         "title_color": "#000000",
         "time_access_title": "TIME ACCESS",
         "time_access_value": "45:00",
@@ -18,28 +18,28 @@
           "type": "modal_settings",
           "settings": {
             "admin_link_title": "33°12’08.9”N 87°07’52.0”W",
-            "admin_modal_url": "https://www.google.com/maps/place/33%C2%B012'08.9%22N+87%C2%B007'52.0%22W/@33.2025064,-87.13126,46m/data=!3m1!1e3!4m5!3m4!1s0x0:0xb5a0028e619792ad!8m2!3d33.2024722!4d-87.1311111!5m1!1e4"
+            "admin_modal_url": "https:\/\/www.google.com\/maps\/place\/33%C2%B012'08.9%22N+87%C2%B007'52.0%22W\/@33.2025064,-87.13126,46m\/data=!3m1!1e3!4m5!3m4!1s0x0:0xb5a0028e619792ad!8m2!3d33.2024722!4d-87.1311111!5m1!1e4"
           }
         },
         "e3a371c9-2102-4e6d-882d-d1e10b6b0735": {
           "type": "modal_settings",
           "settings": {
             "admin_link_title": "ultrA DEVLPMT",
-            "admin_modal_url": "https://koalastothemax.com/"
+            "admin_modal_url": "https:\/\/koalastothemax.com\/"
           }
         },
         "af0a5dfb-9a9f-4ced-837d-b6b170d22100": {
           "type": "modal_settings",
           "settings": {
             "admin_link_title": "ultrA STATS",
-            "admin_modal_url": "https://www.internetlivestats.com/"
+            "admin_modal_url": "https:\/\/www.internetlivestats.com\/"
           }
         },
         "928de891-0320-4cc2-81aa-79dcb1914f1a": {
           "type": "modal_settings",
           "settings": {
             "admin_link_title": "Try to be a hacker",
-            "admin_modal_url": "https://hackertyper.com/"
+            "admin_modal_url": "https:\/\/hackertyper.com\/"
           }
         }
       },
@@ -63,13 +63,13 @@
         "modal_close_color": "#ffffff",
         "modal_text_color": "#121212",
         "about_modal_title": "ABOUT :",
-        "about_modal_textarea": "<p><strong>ultrA electriquE</strong> is a cryptic enterprise communicating from an alternative macroscom to draw awareness to our society, psychology, environment, science and technology. </p><p>The elegance of our garments can be discovered in the textures and functional designs of our first collection : <br/><strong>33°12’08.9”N 87°07’52.0”W</strong></p><p>The enterprise weaves tradecraft within the fabrics and sustainable materials of uE.</p><p>The genesis of ultrA electriquE is France with its current station located in Paris.</p><p>The features of this collection are clandestine in nature.</p><p><em>Designed and founded by </em><em><strong>51</strong></em><em>, whose origin is veiled.</em></p>",
+        "about_modal_textarea": "<p><strong>ultrA electriquE<\/strong> is a cryptic enterprise communicating from an alternative macroscom to draw awareness to our society, psychology, environment, science and technology. <\/p><p>The elegance of our garments can be discovered in the textures and functional designs of our first collection : <br\/><strong>33°12’08.9”N 87°07’52.0”W<\/strong><\/p><p>The enterprise weaves tradecraft within the fabrics and sustainable materials of uE.<\/p><p>The genesis of ultrA electriquE is France with its current station located in Paris.<\/p><p>The features of this collection are clandestine in nature.<\/p><p><em>Designed and founded by <\/em><em><strong>51<\/strong><\/em><em>, whose origin is veiled.<\/em><\/p>",
         "about_text_align": "center",
         "shop_modal_title": "SHOP :",
         "shop_modal_textarea": "ACCESS  TEMPORARY DENIED",
         "shop_text_align": "left",
         "contact_modal_title": "CONTACT :",
-        "contact_modal_text": "For more information please contact us at: <br> office@ultraelectrique.com",
+        "contact_modal_text": "<p>For more information please contact us at: <\/p><p><\/p><p><\/p><p><br\/> office@ultraelectrique.com<\/p>",
         "contact_text_align": "left",
         "contact_link_color": "#000000",
         "admin_log_modal_title": "ADMIN LOG :",
@@ -79,8 +79,13 @@
     },
     "footer": {
       "type": "ueq-footer",
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": ["header", "menu", "footer"]
+  "order": [
+    "header",
+    "menu",
+    "footer"
+  ]
 }
