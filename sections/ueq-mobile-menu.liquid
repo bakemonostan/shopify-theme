@@ -1,20 +1,20 @@
 {% style %}
   .ueq-mobile-menu-wrapper {
-    background-color: {{ section.settings.menu_background_color}};
+    background-color: {{ section.settings.menu_background_color }};
   }
 
   .mobile-shop-linklist-wrapper a,
   a:visited,
   a:active {
-    color: {{ section.settings.menu_item_color}} !important;
+    color: white;
   }
 {% endstyle %}
 
 {% javascript %}
-  let closeBtn = document.getElementById("close-ueq-mobile-menu")
-  closeBtn.addEventListener("click", e => {
-    let mobileMenuContainer = document.getElementById("ueq-mobile-menu-container");
-    mobileMenuContainer.style.display = "none";
+  let closeBtn = document.getElementById('close-ueq-mobile-menu');
+  closeBtn.addEventListener('click', (e) => {
+    let mobileMenuContainer = document.getElementById('ueq-mobile-menu-container');
+    mobileMenuContainer.style.display = 'none';
   });
 {% endjavascript %}
 
@@ -22,7 +22,7 @@
   <div class="ueq-mobile-menu-wrapper">
     <div class="menu-close-wrapper">
       <div class="close-icon" id="close-ueq-mobile-menu">
-        {% include 'ueq-icon-close-button' %}
+        {% render 'ueq-icon-close-button' %}
       </div>
     </div>
     <div class="mobile-shop-linklist-wrapper">
@@ -32,42 +32,44 @@
             {%- if customer -%}ACCOUNT{%- else -%}LOGIN{%- endif -%}
           </a>
 
-          {% include 'icon-user' %}
-
+          {% render 'icon-user' %}
         </div>
       {%- endif -%}
 
       {% for link in linklists.shop.links %}
-        <a href="{{link.url}}">{{link.title}}</a>
+        <a href="{{ link.url }}">{{ link.title }}</a>
       {% endfor %}
     </div>
   </div>
 </div>
 
 {% schema %}
-  {
-    "name": "Mobile menu settings",
-    "class": "UEQ Sections",
-    "settings": [
-      {
-        "type": "header",
-        "content": "UEQ mobile menu settings"
-      }, {
-        "type": "color",
-        "id": "menu_background_color",
-        "label": "Pick a color",
-        "default": "#ffffff",
-        "info": "Color of menu background"
-      }, {
-        "type": "color",
-        "id": "menu_item_color",
-        "label": "Pick a color",
-        "default": "#000000",
-        "info": "Color of menu items"
-      }, {
-        "type": "paragraph",
-        "content": "Developed by DigitalDepth"
-      }
-    ]
-  }
+{
+  "name": "Mobile menu settings",
+  "class": "UEQ Sections",
+  "settings": [
+    {
+      "type": "header",
+      "content": "UEQ mobile menu settings"
+    },
+    {
+      "type": "color",
+      "id": "menu_background_color",
+      "label": "Pick a color",
+      "default": "#ffffff",
+      "info": "Color of menu background"
+    },
+    {
+      "type": "color",
+      "id": "menu_item_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "Color of menu items"
+    },
+    {
+      "type": "paragraph",
+      "content": "Developed by DigitalDepth"
+    }
+  ]
+}
 {% endschema %}
