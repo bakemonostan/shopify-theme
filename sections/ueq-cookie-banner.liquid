@@ -1,0 +1,143 @@
+{% style %}
+    #ueq-cookie-banner{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1200px;
+        height: 600px;
+        background: {{ section.settings.cookie_background_color }};
+        border: 2px solid {{ section.settings.cookie_border_color }};
+    }
+
+    #ueq-cookie-banner button{
+        background: {{ section.settings.cookie_border_color }};
+        border: none;
+        cursor: pointer;
+    }
+
+    .ueq-cookie-wrapper{
+        height: 100%
+    }
+
+    .ueq-cookie-header p{
+        color: #000000;
+        padding: 0 20px;
+        margin: 0;
+        background:{{ section.settings.cookie_border_color }};
+    }
+
+    .ueq-cookie-body{
+        height: 500px;
+        text-align: center;
+        font-size: 30px;
+        padding: 0 20px;
+    }
+
+{% endstyle %}
+
+<div id="ueq-cookie-banner">
+    <div class="ueq-cookie-wrapper">
+        <div class="ueq-cookie-header">
+            <p>{{ section.settings.cookie_title }}</p>
+        </div>
+        <div class="ueq-cookie-body">
+            <p>{{ section.settings.cookie_text }}</p>
+            <button onclick="handleAccept()">OK</button>    
+        </div>
+    </div>
+</div>
+
+<script>
+  function getBannerEl() {
+    return document.getElementById('ueq-cookie-banner');
+  }
+
+  function hideBanner(res) {
+    getBannerEl().style.display = 'none';
+  }
+
+  function showBanner() {
+   getBannerEl().style.display = 'block';
+  }
+
+  function handleAccept(e) {
+    window.Shopify.customerPrivacy.setTrackingConsent(true, hideBanner);
+
+    document.addEventListener('trackingConsentAccepted',function() {
+      console.log('trackingConsentAccepted event fired');
+    });
+  }
+
+  function initCookieBanner() {
+    const userCanBeTracked = window.Shopify.customerPrivacy.userCanBeTracked();
+    const userTrackingConsent = window.Shopify.customerPrivacy.getTrackingConsent();
+
+    if(!userCanBeTracked && userTrackingConsent === 'no_interaction') {
+        showBanner();
+    } else {
+        hideBanner();
+    }
+  }
+
+  window.Shopify.loadFeatures([
+    {
+      name: 'consent-tracking-api',
+      version: '0.1',
+    }
+  ],
+  function(error) {
+    if (error) {
+      throw error;
+    }
+
+    initCookieBanner();
+  });
+
+</script>
+
+{% schema %}
+{
+    "name": "Cookie banner settings",
+    "class": "UEQ Sections",
+    "settings": [
+        {
+            "type": "text",
+            "id": "cookie_title",
+            "label": "Cookie banner title",
+            "default": "cookie_banner.exe"
+        },
+        {
+            "type": "text",
+            "id": "cookie_text",
+            "label": "Cookie text",
+            "default": "Lorem ipsum"
+        },
+        {
+            "type": "color",
+            "id": "cookie_background_color",
+            "label": "Pick a color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "cookie_border_color",
+            "label": "Pick a color",
+            "default": "#fff056"
+        },
+        {
+            "type": "color",
+            "id": "cookie_text_color",
+            "label": "Pick a color",
+            "default": "#fff056"
+        },
+        {
+            "type": "paragraph",
+            "content": "Developed by DigitalDepth"
+        }
+    ]
+
+
+    
+}
+{% endschema %}

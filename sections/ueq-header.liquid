@@ -1,0 +1,86 @@
+{% style %}
+
+    .header-sub-info .title, .title-begin, .title-letters{
+        color: {{ section.settings.title_color }};
+    }
+{% endstyle %}
+
+<div class="ueq-header-container">
+    <div class="ueq-header-wrapper">
+        <fieldset>
+            <legend>
+                <p>{{ section.settings.copyright_statement }}</p><p>- server 17 // Status: <span id="server-status">CONNECTED</span> -</p>
+            </legend>
+            <div class="header-sub-info">
+                <div>&nbsp;</div>
+                {{ section.settings.title }}
+                <div class="ueq-time-access">
+                    <p>{{ section.settings.time_access_title }}</p>
+                    <p id="time-access-value">{{ section.settings.time_access_value }}</p>
+                    <input type="hidden" name="time-access-end" id="time-access-end" value="{{section.settings.time_access_end}}">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+{% schema %}
+    {
+     "name": "Header settings",
+     "class": "UEQ Sections",
+     "settings": [
+        {
+            "type": "header",
+            "content": "General"
+        },
+        {
+            "type": "text",
+            "id": "copyright_statement",
+            "label": "Copyright text",
+            "default": "Copyright 2021 ultrA electriquE industries",
+            "info": "Enter copyright statement"
+        },
+        {
+            "type": "html",
+            "id": "title",
+            "label": "Enter html title for page",
+            "info": "HTML only"
+        },
+        {
+            "type": "color",
+            "id": "title_color",
+            "label": "Pick a color",
+            "default": "#fff056",
+            "info": "Color of title"
+        },
+        {
+            "type": "header",
+            "content": "Time access settings"
+        },
+        {
+            "type": "text",
+            "id": "time_access_title",
+            "label": "Enter title above timer",
+            "default": "TIME ACCESS"
+        },
+        {
+             "type": "text",
+             "id": "time_access_value",
+             "label": "Enter value for time access",
+             "default": "02:30",
+             "info": "Enter the value of time user has access to website. Enter like MM:SS e.g. (03:45)"
+        },
+        {
+            "type": "text",
+            "id": "time_access_end",
+            "label": "Enter value timer color change",
+            "default": "00:30", 
+            "info": "Enter value when timer color changes to red. Enter like MM:SS e.g. (03:45)"
+        },
+        {
+            "type": "paragraph",
+            "content": "Developed by DigitalDepth"
+        }
+     ]   
+    }
+{% endschema %}

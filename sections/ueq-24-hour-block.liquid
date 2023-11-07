@@ -1,0 +1,125 @@
+{% style %}
+  .ueq-ta_block-modal {
+    background-color: {{ section.settings.block_border_color }}
+    ;
+    border: 2px solid{{ section.settings.block_border_color }};
+    color: {{ section.settings.block_text_color}}
+    ;
+  }
+
+  .ueq-ta_block-body {
+    background-color: {{ section.settings.block_background_color }}
+    ;
+  }
+
+  .ueq-ta_block-header {
+    background-color: {{ section.settings.block_border_color }}
+    ;
+  }
+
+  .ueq-ta_block-header p {
+    color: {{ section.settings.block_title_color }}
+    ;
+  }
+
+  .ueq-ta_block-button {
+    background-color: {{ section.settings.button_color}}
+    ;
+  }
+{% endstyle %}
+
+<div class="ueq-ta_container">
+  <div id="ueq-ta_block" class="ueq-ta_block-modal">
+    <div class="ueq-ta_block-wrapper">
+      <div class="ueq-ta_block-header">
+        <p>{{ section.settings.block_modal_title }}</p>
+      </div>
+      <div class="ueq-ta_block-body">
+        <p>PASSENGER
+          <span id="ueq-ta_user"></span>,
+          {{ section.settings.block_modal_textarea }}
+        </p>
+        <div class="ueq-ta_block-button">
+          <a href="{{section.settings.button_url}}">{{ section.settings.button_text }}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="legals">
+    {% for link in linklists.footer.links %}
+      <a href="{{link.url}}">
+        {{ link.title }}</a>
+      <span>//</span>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "24-hour block settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "block_border_color",
+        "label": "Pick a color",
+        "default": "#ee220c",
+        "info": "Pop-up window border color"
+      },
+      {
+        "type": "color",
+        "id": "block_title_color",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Changes color of title in pop-up"
+      },
+      {
+        "type": "color",
+        "id": "block_text_color",
+        "label": "Pick a color",
+        "default": "#ffffff",
+        "info": "Color changes only the text inside the pop-up. Not the tile."
+      },
+      {
+        "type": "color",
+        "id": "block_background_color",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Select color the background in the pop-up windows"
+      }, {
+        "type": "text",
+        "id": "block_modal_title",
+        "label": "24 Hour block window title",
+        "default": "no_access.exe"
+      }, {
+        "type": "richtext",
+        "id": "block_modal_textarea",
+        "label": "block window text",
+        "info": "Add text inside the 24 block. The text automatically always starts with 'Passenger {PASSENGERID},'."
+      }, {
+        "type": "header",
+        "content": "'Go to shop' button settings"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Text inside button",
+        "default": "GO TO SHOP",
+        "info": "Enter text for the button that redirects to shop"
+      }, {
+        "type": "color",
+        "id": "button_color",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Changes color of button to go to shop"
+      }, {
+        "type": "url",
+        "id": "button_url",
+        "label": "Add link to button"
+      }, {
+        "type": "paragraph",
+        "content": "Developed by DigitalDepth"
+      }
+    ]
+  }
+{% endschema %}

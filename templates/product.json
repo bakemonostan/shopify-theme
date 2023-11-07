@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "product": {
+      "type": "ueq-product",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "product",
+    "product-recommendations"
+  ]
+}

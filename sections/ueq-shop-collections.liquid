@@ -1,0 +1,67 @@
+{% style %}
+  .ueq-collections-list a {
+    color: {{ section.settings.list_item_color}}}
+
+  .ueq-collections-list a:hover {
+    background-color: {{ section.settings.list_item_hover_color}}}
+{% endstyle %}
+
+{% assign collections = collections | sort: 'published_at' | reverse %}
+
+<div class="ueq-collections-list-container">
+  <div class="ueq-collections-list-wrapper">
+    <h2 class="ueq-collections-list-title">
+      {{section.settings.collections_list_title}}
+    </h2>
+    <div class="ueq-collections-list">
+      <a href="{{routes.all_products_collection_url}}">{{section.settings.view_all_text}}</a>
+      {% for collection in collections %}
+        <a href="{{collection.url}}">{{collection.title}}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection list settings",
+    "class": "UEQ Sections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "UEQ collection list settings"
+      },
+      {
+        "type": "text",
+        "id": "collections_list_title",
+        "label": "Text for collections list title",
+        "default": "Collections",
+        "info": "Enter text"
+      },
+      {
+        "type": "text",
+        "id": "view_all_text",
+        "label": "Text for 'view all' button",
+        "default": "ALL PRODUCTS",
+        "info": "Enter text"
+      },
+
+      {
+        "type": "color",
+        "id": "list_item_color",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Color of collection list items"
+      }, {
+        "type": "color",
+        "id": "list_item_hover_color",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of collection list item on hover"
+      }, {
+        "type": "paragraph",
+        "content": "Developed by DigitalDepth"
+      }
+    ]
+  }
+{% endschema %}

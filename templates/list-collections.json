@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "featured_media": {
+      "type": "ueq-featured-media",
+      "settings": {
+      }
+    },
+    "collections": {
+      "type": "ueq-shop-collections",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "featured_media",
+    "collections"
+  ]
+}

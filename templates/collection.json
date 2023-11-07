@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "featured_media": {
+      "type": "ueq-featured-media",
+      "settings": {
+        "featured_media_title": "",
+        "title_color": "#000000",
+        "background_color": "#E9E9E9",
+        "foreground_color": "#ffffff",
+        "image": "shopify:\/\/shop_images\/IMG_2016.jpg",
+        "video_url": "",
+        "embed_video_url": "",
+        "autoplay_video": true,
+        "controls_video": true,
+        "mute_video": true,
+        "loop_video": true,
+        "featured_media_url": "",
+        "url_new_tab": true
+      }
+    },
+    "product_grid": {
+      "type": "ueq-shop-collection",
+      "settings": {
+        "show_collection_title": false,
+        "product_border_color": "#E9E9E9",
+        "product_border_color_hover": "#000000",
+        "product_information_background_color": "#E9E9E9",
+        "product_information_foreground_color": "#ffffff",
+        "product_information_text_color": "#E9E9E9",
+        "product_information_text_color_hover": "#000000",
+        "product_sold_out_text": "SOLD OUT",
+        "price_reduction_color": "#Ee1c1c",
+        "price_reduction_color_hover": "#Ee1c1c"
+      }
+    }
+  },
+  "order": [
+    "featured_media",
+    "product_grid"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "current": {
+    "colors_solid_button_labels": "#FFFFFF",
+    "colors_accent_1": "#121212",
+    "colors_accent_2": "#334FB4",
+    "colors_text": "#121212",
+    "colors_outline_button_labels": "#121212",
+    "colors_background_1": "#FFFFFF",
+    "colors_background_2": "#F3F3F3",
+    "type_header_font": "assistant_n4",
+    "type_body_font": "assistant_n4",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "settings": {
+              "color_scheme": "background-1"
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      },
+      "ueq-website-settings": {
+        "type": "ueq-website-settings",
+        "settings": {
+          "website_background_color": "#ffffff",
+          "website_border_color": "#000000",
+          "server_status_color": "#00ff00",
+          "selection_background_color": "#000000",
+          "selection_text_color": "#fff056",
+          "legal_color": "#a79c26"
+        }
+      },
+      "ueq-video-background": {
+        "type": "ueq-video-background",
+        "settings": {
+          "video_background_toggle": true,
+          "video_background_opacity": 0.3,
+          "video_url": ""
+        }
+      },
+      "ueq-24-hour-block": {
+        "type": "ueq-24-hour-block",
+        "settings": {
+          "block_border_color": "#000000",
+          "block_title_color": "#ff0000",
+          "block_text_color": "#000000",
+          "block_background_color": "#fdfdfd",
+          "block_modal_title": "TERMINAL ACCESS EXPIRED",
+          "block_modal_textarea": "<p>YOUR TERMINAL PRIVILEGES HAS BEEN REVOKED...<\/p>",
+          "button_text": "GO TO SHOP",
+          "button_color": "#fff056",
+          "button_url": "shopify:\/\/collections"
+        }
+      },
+      "ueq-mobile-menu": {
+        "type": "ueq-mobile-menu",
+        "settings": {
+          "menu_background_color": "#ffffff",
+          "menu_item_color": "#000000"
+        }
+      },
+      "ueq-shop-header": {
+        "type": "ueq-shop-header",
+        "settings": {
+          "copyright_statement": "Copyright 2021 ultrA electriquE industries",
+          "title": "ultrA electriquE",
+          "logo_page_url": "",
+          "sub_extra_text": "33°12`08.9`N 87°07`52.0`W",
+          "shop_header_color": "#ffffff",
+          "title_color": "#fff056",
+          "menu_hover_color": "#fff056",
+          "header_deco": "#fff056",
+          "cart_bubble_color": "#000000",
+          "cart_bubble_text_color": "#ffffff"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+      "colors_solid_button_labels": "#FFFFFF",
+      "colors_accent_1": "#121212",
+      "colors_accent_2": "#334FB4",
+      "colors_text": "#121212",
+      "colors_outline_button_labels": "#121212",
+      "colors_background_1": "#FFFFFF",
+      "colors_background_2": "#F3F3F3",
+      "type_header_font": "assistant_n4",
+      "type_body_font": "assistant_n4",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "color_scheme": "background-1"
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+          }
+        }
+      }
+    },
+    "Craft": {
+      "colors_solid_button_labels": "#EFECEC",
+      "colors_accent_1": "#2A332F",
+      "colors_accent_2": "#476154",
+      "colors_text": "#1C1A1A",
+      "colors_outline_button_labels": "#7B8382",
+      "colors_background_1": "#EFECEC",
+      "colors_background_2": "#C1BCAE",
+      "type_header_font": "americana_n4",
+      "type_body_font": "quattrocento_sans_n4",
+      "sections": {
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "menu": {
+              "type": "link_list",
+              "settings": {
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "menu",
+            "text"
+          ],
+          "settings": {
+            "color_scheme": "accent-1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{% style %}
+  .product-clickable-area {
+    border: 0.5px solid{{ section.settings.product_border_color}};
+    color: {{ section.settings.product_information_text_color}};
+  }
+
+  .product-clickable-area:visited,
+  .product-clickable-area:active {
+    color: {{ section.settings.product_information_text_color}};
+  }
+
+  .product-clickable-area:hover {
+    border: 0.5px solid{{ section.settings.product_border_color_hover}};
+    z-index: 1 !important;
+    color: {{ section.settings.product_information_text_color_hover}};
+  }
+
+  .product-clickable-area:hover .price-reduction {
+    color: {{ section.settings.price_reduction_color_hover}};
+  }
+
+  .product-clickable-area .product-information-container {
+    background-color: {{ section.settings.product_information_background_color}};
+  }
+
+  .product-information-wrapper {
+    background-color: {{ section.settings.product_information_foreground_color}};
+  }
+
+  .price-reduction {
+    color: {{ section.settings.price_reduction_color}};
+  }
+{% endstyle %}
+
+<div class="ueq-shop-collection-container">
+  {% if section.settings.show_collection_title %}
+    <div class="ueq-shop-collection-title">
+      <h2>{{collection.title}}</h2>
+    </div>
+  {% endif %}
+  <div class="ueq-shop-collection-wrapper">
+    <div class="ueq-shop-product-grid-wrapper ueq-shop-product-grid-wrapper-col2" id="ueq-shop-product-grid-wrapper">
+      {% for product in collection.products %}
+        <a href="{{product.url}}" class="product-clickable-area">
+          <div class="product-container">
+            <div class="product-wrapper">
+              <div class="product-image-wrapper">
+                <img src="{{product.featured_image.src | image_url}}" alt="{{product.featured_image.alt}}">
+              </div>
+              <div class="product-information-container">
+                <div class="product-information-wrapper">
+                  {% if product.available %}
+                    <div class="product-title">
+                      <p>{{product.title}}</p>
+                    </div>
+                    <div class="product-price">
+                      {% if product.compare_at_price != blank%}
+                        <p class="price-reduction">
+                          <s>{{product.compare_at_price | money }}</s>
+                        </p>
+                      {% endif %}
+                      <p>{{product.price | money }}</p>
+
+                    </div>
+                  {% else %}
+                    <div class="product-sold-out">
+                      <p>{{section.settings.product_sold_out_text}}</p>
+                    </div>
+                  {%endif%}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection settings",
+    "class": "UEQ Sections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "UEQ collection settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_title",
+        "label": "Show title of collection (Except if collections/all)",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Product item settings"
+      },
+      {
+        "type": "color",
+        "id": "product_border_color",
+        "label": "Pick a color",
+        "default": "#E9E9E9",
+        "info": "Color of border on each product"
+      }, {
+        "type": "color",
+        "id": "product_border_color_hover",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Color of border on each product on hover"
+      }, {
+        "type": "color",
+        "id": "product_information_background_color",
+        "label": "Pick a color",
+        "default": "#E9E9E9",
+        "info": "Color of background on product information"
+      }, {
+        "type": "color",
+        "id": "product_information_foreground_color",
+        "label": "Pick a color",
+        "default": "#ffffff",
+        "info": "Color of foreground on product information"
+      }, {
+        "type": "color",
+        "id": "product_information_text_color",
+        "label": "Pick a color",
+        "default": "#E9E9E9",
+        "info": "Color of text inside product information"
+      }, {
+        "type": "color",
+        "id": "product_information_text_color_hover",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Color of text inside product information"
+      }, {
+        "type": "text",
+        "id": "product_sold_out_text",
+        "label": "Enter text for if product is sold out",
+        "default": "SOLD OUT",
+        "info": "Enter text"
+      }, {
+        "type": "color",
+        "id": "price_reduction_color",
+        "label": "Pick a color",
+        "default": "#Ee1c1c",
+        "info": "Color of price reduction price"
+      }, {
+        "type": "color",
+        "id": "price_reduction_color_hover",
+        "label": "Pick a color",
+        "default": "#Ee1c1c",
+        "info": "Color of price reduction price on hover"
+      }, {
+        "type": "paragraph",
+        "content": "Developed by DigitalDepth"
+      }
+    ]
+  }
+{% endschema %}

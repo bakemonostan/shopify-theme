@@ -1,0 +1,429 @@
+{% style %}
+   [data-termynal] {
+     color: {{ section.settings.terminal_font_color }};
+   }
+
+   [data-ty="input"]:before,
+   [data-ty-prompt]:before {
+     color: {{ section.settings.terminal_prompt_color }};
+   }
+
+   .ueq-menu-wrapper p {
+     color: {{ section.settings.menu_text_color }};
+   }
+
+   .ueq-menu-wrapper p:hover {
+     background-color: {{ section.settings.menu_hover_bgcolor }};
+     color: {{ section.settings.menu_hover_tcolor }};
+   }
+
+   .ueq-menu-wrapper a:hover {
+     background-color: {{ section.settings.menu_hover_bgcolor }};
+     color: {{ section.settings.menu_hover_tcolor }};
+   }
+
+   .ueq-modal-container {
+     border: 2px solid{{ section.settings.modal_border_color }};
+     color: {{ section.settings.modal_text_colo }};
+   }
+
+   .ueq-modal-container .ueq-modal-header button {
+     border-top: 1px solid{{ section.settings.modal_close_color }};
+     border-left: 1px solid{{ section.settings.modal_close_color }};
+     border-right: 3px solid{{ section.settings.modal_close_color }};
+     border-bottom: 3px solid{{ section.settings.modal_close_color }};
+     color: {{ section.settings.modal_close_color }};
+   }
+
+   .ueq-modal-container .ueq-modal-header {
+     color: {{ section.settings.modal_title_color }}}
+
+   .ueq-modal-wrapper {
+     background-color: {{ section.settings.modal_border_color }};
+   }
+
+   .ueq-modal-body {
+     background-color: {{ section.settings.modal_background_color }};
+     border: 3px solid red;
+     padding: 20px ;
+   }
+  .ueq-modal-body a {
+    text-decoration: none;
+    padding: 0px !important;
+   }
+
+   .ueq-modal-header,
+   button {
+     background-color: {{ section.settings.modal_border_color }};
+   }
+
+   #admin_log-modal .ueq-modal-body a,
+   a:active,
+   a:visited {
+     color: {{ section.settings.admin_modal_text_color }};
+   }
+
+   #admin_log-modal .ueq-modal-body a:hover {
+     background-color: {{ section.settings.admin_modal_text_color }};
+     color: {{ section.settings.admin_modal_texthover_color }};
+   }
+
+   #about-modal,
+   #shop-modal,
+   #admin_log-modal,
+   #contact-modal {
+     width: 600px !important;
+   }
+
+   #about-modal .ueq-modal-body p {
+     text-align: {{ section.settings.about_text_align }};
+   }
+
+   #shop-modal .ueq-modal-body p {
+     text-align: {{ section.settings.shop_text_align }};
+   }
+
+   #contact-modal .ueq-modal-body {
+     text-align: {{ section.settings.contact_text_align }};
+   }
+
+   #contact-modal .ueq-modal-body a {
+     color: {{ section.settings.contact_link_color }};
+   }
+
+   @media screen and (max-width: 1000px) {
+     #about-modal,
+     #shop-modal,
+     #admin_log-modal,
+     #contact-modal {
+       width: 300px !important;
+     }
+
+   }
+{% endstyle %}
+
+<div class="ueq-menu-container">
+  <div class="ueq-menu-wrapper">
+    <ul class="ueq-menu">
+      <input type="hidden" id="terminal-type-speed" value="{{ section.settings.terminal_type_speed }}">
+      <input type="hidden" id="terminal-line-speed" value="{{ section.settings.terminal_line_speed }}">
+      {% for link in linklists['ueq-menu'].links %}
+        <li data-menu="{{ link.title | upcase }}" class="ueq-menu-link">
+          <hr class="item-line">
+          {% assign downcase_title = link.title | downcase %}
+          {% if downcase_title != 'shop' %}
+            <p class="ueq-menu-title no-select">[{{ link.title | upcase }}]</p>
+          {% else %}
+            <a class="ueq-menu-title no-select" href="{{ link.url }}">[{{ link.title | upcase }}]</a>
+          {% endif %}
+
+          {% if downcase_title == 'admin log' %}
+            {% assign admin_title = 'admin_log' %}
+            {% assign title_field = admin_title | append: '_modal_title' %}
+            {% assign title_menu = admin_title | append: '_modal_title' %}
+            <input type="hidden" id="{{ title_menu }}" value="{{ section.settings[title_field] }}">
+
+            {% for block in section.blocks %}
+              <input
+                type="hidden"
+                id="admin-log-link"
+                value="{{ block.settings.admin_link_title }} - {{ block.settings.admin_modal_url }}"
+              >
+            {% endfor %}
+
+          {% elsif downcase_title == 'shop' %}
+            {% assign title_menu = downcase_title | append: '_link_title' %}
+          {% else %}
+            {% assign title_field = downcase_title | append: '_modal_title' %}
+            {% assign title_menu = downcase_title | append: '_modal_title' %}
+            <input type="hidden" id="{{ title_menu }}" value="{{ section.settings[title_field] }}">
+          {% endif %}
+
+          {% if downcase_title != 'admin log' %}
+            {% if downcase_title == 'contact' %}
+              {% assign textarea_field = downcase_title | append: '_modal_text' %}
+              {% assign textarea_menu = downcase_title | append: '_modal_textarea' %}
+              <input type="hidden" id="{{ textarea_menu }}" value="{{ section.settings[textarea_field] }}">
+            {% elsif downcase_title == 'about' %}
+              {% assign textarea_field = downcase_title | append: '_modal_textarea' %}
+              {% assign textarea_menu = downcase_title | append: '_modal_textarea' %}
+              <input type="hidden" id="{{ textarea_menu }}" value="{{ section.settings[textarea_field] }}">
+            {% else %}
+              {% assign textarea_field = downcase_title | append: '_modal_textarea' %}
+              {% assign textarea_menu = downcase_title | append: '_modal_textarea' %}
+              <input type="hidden" id="{{ textarea_menu }}" value="{{ section.settings[textarea_field] }}">
+            {% endif %}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Menu settings",
+  "class": "UEQ Sections",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Menu settings"
+    },
+    {
+      "type": "color",
+      "id": "menu_text_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Menu text color"
+    },
+    {
+      "type": "color",
+      "id": "menu_hover_bgcolor",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Background color menu items on hover"
+    },
+    {
+      "type": "color",
+      "id": "menu_hover_tcolor",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "Text color menu items on hover"
+    },
+    {
+      "type": "header",
+      "content": "Terminal settings"
+    },
+    {
+      "type": "number",
+      "id": "terminal_type_speed",
+      "label": "Insert speed for typed line in terminal in ms",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "terminal_line_speed",
+      "label": "Insert speed for each line in terminal in ms",
+      "default": 200
+    },
+    {
+      "type": "color",
+      "id": "terminal_font_color",
+      "label": "Pick a color",
+      "default": "#ffffff",
+      "info": "Set the color of terminal output text"
+    },
+    {
+      "type": "color",
+      "id": "terminal_prompt_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Set the color of the terminal prompt. Prompt are the icons before the commands lines."
+    },
+    {
+      "type": "header",
+      "content": "Pop-up window settings"
+    },
+    {
+      "type": "color",
+      "id": "modal_background_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "Select color the background in the pop-up windows"
+    },
+    {
+      "type": "color",
+      "id": "modal_border_color",
+      "label": "Pick a color",
+      "default": "#ee220c",
+      "info": "Select color for the borders around the pop-up windows"
+    },
+    {
+      "type": "color",
+      "id": "modal_title_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "This changes the title color of the pop-up windows"
+    },
+    {
+      "type": "color",
+      "id": "modal_close_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "This changes the borders and X of the close button"
+    },
+    {
+      "type": "color",
+      "id": "modal_text_color",
+      "label": "Pick a color",
+      "default": "#ffffff",
+      "info": "Color changes only the text inside the pop-up. Not the tile."
+    },
+    {
+      "type": "header",
+      "content": "About pop-up window settings"
+    },
+    {
+      "type": "text",
+      "id": "about_modal_title",
+      "label": "About window title",
+      "default": "about.exe"
+    },
+    {
+      "type": "richtext",
+      "id": "about_modal_textarea",
+      "label": "About window text",
+      "default": "<p>This is a test <strong>strong</strong> and <span style='text-decoration:underline'>underline</span></p>",
+      "info": "Add text inside the window that pops up after clicking about menu item."
+    },
+    {
+      "type": "select",
+      "id": "about_text_align",
+      "label": "Align the text for about pop-up window",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Shop pop-up window settings"
+    },
+    {
+      "type": "text",
+      "id": "shop_modal_title",
+      "label": "Shop window title",
+      "default": "shop.exe"
+    },
+    {
+      "type": "textarea",
+      "id": "shop_modal_textarea",
+      "label": "Shop window text",
+      "default": "ACCESS DENIED",
+      "info": "Add text inside the window that pops up after clicking shop menu item."
+    },
+    {
+      "type": "select",
+      "id": "shop_text_align",
+      "label": "Align the text for shop pop-up window",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Contact pop-up window settings"
+    },
+    {
+      "type": "text",
+      "id": "contact_modal_title",
+      "label": "Contact window title",
+      "default": "contact.exe"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_modal_text",
+      "label": "Contact window text",
+      "default": "<p>Lorem ipsum</p>",
+      "info": "Add email in contact pop up window"
+    },
+    {
+      "type": "select",
+      "id": "contact_text_align",
+      "label": "Align the text for contact pop-up window",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "contact_link_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Change the color of the email link in contact pop-up window"
+    },
+    {
+      "type": "header",
+      "content": "Adming log pop-up window settings"
+    },
+    {
+      "type": "text",
+      "id": "admin_log_modal_title",
+      "label": "Admin Log window title",
+      "default": "admin_log.exe"
+    },
+    {
+      "type": "color",
+      "id": "admin_modal_text_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Pick the color of the text in admin log pop-up window"
+    },
+    {
+      "type": "color",
+      "id": "admin_modal_texthover_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "Pick the color of the text in admin log pop-up window when user hovers"
+    },
+    {
+      "type": "paragraph",
+      "content": "Developed by DigitalDepth"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Admin Log link",
+      "type": "modal_settings",
+      "settings": [
+        {
+          "type": "text",
+          "id": "admin_link_title",
+          "label": "Add name for the link. The name always starts with (C:\\{userID}\\)",
+          "default": "Lorem ipsum"
+        },
+        {
+          "type": "url",
+          "id": "admin_modal_url",
+          "label": "Add links to admin window pop up."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

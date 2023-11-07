@@ -1,0 +1,287 @@
+{% style %}
+  .header-logo-link,
+  .header-logo-link:active,
+  .header-logo-link:visited {
+    color: {{ section.settings.title_color}};
+  }
+
+  .header-shop-menu a:hover {
+    background-color: {{ section.settings.menu_hover_color }};
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .header-shop-menu .linklist-active{
+    background-color: {{ section.settings.menu_hover_color }};
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .ueq-shop-header-container,
+  .header-shop-sub-extras {
+    background-color: {{ section.settings.shop_header_color }};
+  }
+
+  .main-wrapper {
+    margin: 0 !important;
+  }
+
+  .header-shop-sub-decoration,
+  .selected {
+    background-color: {{ section.settings.header_deco}};
+  }
+
+  .ueq-cart-count-bubble {
+    background-color: {{ section.settings.cart_bubble_color}};
+    color: {{ section.settings.cart_bubble_text_color}};
+  }
+{% endstyle %}
+
+{% javascript %}
+  // let navbar = document.getElementById("ueq-shop-header-container");
+// let contentBesidesNav = document.getElementById("content-wrapper");
+
+// let navPos = navbar.getBoundingClientRect().top;
+// const navHeight = navbar.clientHeight
+
+// window.addEventListener("scroll", e => {
+// let scrollPos = window.scrollY;
+// if (scrollPos > navHeight) {
+//     navbar.classList.add('ueq-shop-header-container-sticky');
+//     contentBesidesNav.style.marginTop = `${navHeight}px`;
+// } else {
+//     navbar.classList.remove('ueq-shop-header-container-sticky');
+//     contentBesidesNav.style.marginTop = "0px"
+// }
+// });
+
+  let gridAuto = document.getElementById("grid-auto-option")
+  let gridCol2 = document.getElementById("grid-col2-option")
+  let gridCol3 = document.getElementById("grid-col3-option")
+  let ProductGridWrapper = document.getElementById("ueq-shop-product-grid-wrapper")
+
+  if (typeof(gridAuto) != 'undefined' && gridAuto != null && typeof(gridCol2) != 'undefined' && gridCol2 != null && typeof(gridCol3) != 'undefined' && gridCol3 != null && typeof(ProductGridWrapper) != 'undefined' && ProductGridWrapper != null) {
+    gridAuto.addEventListener("click", e => {
+      gridAuto.classList.add("selected");
+      gridCol2.classList.remove("selected");
+      gridCol3.classList.remove("selected");
+
+      ProductGridWrapper.classList.add("ueq-shop-product-grid-wrapper-auto");
+      ProductGridWrapper.classList.remove("ueq-shop-product-grid-wrapper-col2");
+      ProductGridWrapper.classList.remove("ueq-shop-product-grid-wrapper-col3");
+    });
+
+    gridCol2.addEventListener("click", e => {
+      gridCol2.classList.add("selected");
+      gridAuto.classList.remove("selected");
+      gridCol3.classList.remove("selected");
+
+      ProductGridWrapper.classList.remove("ueq-shop-product-grid-wrapper-auto");
+      ProductGridWrapper.classList.add("ueq-shop-product-grid-wrapper-col2");
+      ProductGridWrapper.classList.remove("ueq-shop-product-grid-wrapper-col3");
+    });
+    gridCol3.addEventListener("click", e => {
+      gridCol3.classList.add("selected");
+      gridAuto.classList.remove("selected");
+      gridCol2.classList.remove("selected");
+
+      ProductGridWrapper.classList.remove("ueq-shop-product-grid-wrapper-auto");
+      ProductGridWrapper.classList.remove("ueq-shop-product-grid-wrapper-col2");
+      ProductGridWrapper.classList.add("ueq-shop-product-grid-wrapper-col3");
+    });
+  }
+
+  let hamburgerMenu = document.getElementById("mobile-menu-wrapper");
+
+  hamburgerMenu.addEventListener("click", e => {
+    let mobileMenuContainer = document.getElementById("ueq-mobile-menu-container");
+    mobileMenuContainer.style.display = "block";
+  });
+{% endjavascript %}
+
+<div class="ueq-shop-header-container" id="ueq-shop-header-container">
+  <div class="ueq-shop-header-wrapper">
+    <div class="header-copyright">
+      <p>{{ section.settings.copyright_statement }}</p>
+      <p>- server 27 // Status:
+        <span id="server-status">SHOP_CONNECTED</span>
+        -</p>
+    </div>
+    <div class="header-shop-sub-info">
+      <div class="header-shop-menu">
+        <div class="shop-linklist-wrapper">
+          {% for link in linklists.shop.links %}
+            <a href="{{link.url}}" {% if link.active %}class="linklist-active"{% endif %}>{{link.title}}</a>
+          {% endfor %}
+        </div>
+        <div class="mobile-menu-wrapper" id="mobile-menu-wrapper">
+          {% include 'ueq-icon-mobile-hamburger' %}
+        </div>
+      </div>
+      <a class="header-logo-link" href="{{section.settings.logo_page_url}}">
+        <h1 class="header-sub-title">
+          {{ section.settings.title }}
+        </h1>
+      </a>
+      <div class="header-shop-customer">
+        <div class="search-icon">
+          <a href="{{routes.search_url}}">
+            {% include 'icon-search' %}
+          </a>
+        </div>
+        <div class="cart-icon">
+          <a class="ueq-cart-link" id="ueq-cart-link" href="{{routes.cart_url}}">
+            {% include 'icon-checkout' %}
+            {%- if cart != empty -%}
+              <div class="ueq-cart-count-bubble" id="ueq-cart-count-bubble">
+                {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </a>
+        </div>
+        <div class="user-icon">
+          {%- if shop.customer_accounts_enabled -%}
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">
+              {% include 'icon-user' %}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+    <div class="header-shop-sub-extras" id="header-shop-sub-extras">
+      <div class="passenger-information">
+        <p>Passenger ID:
+          <span id="random-id-value"></span>
+        </p>
+      </div>
+      <div class="sub-extra-info">
+        <p>{{ section.settings.sub_extra_text }}</p>
+      </div>
+      {% if template.name == "collection" %}
+        <div class="product-grid-options-wrapper">
+          <div class="grid-switcher-wrapper">
+            <ul>
+              <li>GRID LAYOUT:</li>
+              <li id="grid-auto-option">
+                {% include 'icon-column1' %}
+              </li>
+              <li id="grid-col2-option" class="selected">
+                {% include 'icon-column2' %}
+              </li>
+              <li id="grid-col3-option">
+                {% include 'icon-column3' %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+      <div class="product-grid-options-wrapper">
+        <div class="grid-switcher-wrapper"></div>
+      </div>
+    </div>
+    <div class="header-shop-sub-decoration">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+{% if template.name == "collection" %}
+  <script>
+      let navbar = document.getElementById("ueq-shop-header-container");
+      let navbarExtraOptions = document.getElementById("header-shop-sub-extras");
+      let contentBesidesNav = document.getElementById("content-wrapper");
+
+      let navPos = navbar.getBoundingClientRect().top;
+      const navHeight = navbar.clientHeight
+
+      window.addEventListener("scroll", e => {
+        let scrollPos = window.scrollY;
+        if (scrollPos > navHeight) {
+          navbarExtraOptions.classList.add('header-shop-sub-extras-sticky');
+            // contentBesidesNav.style.marginTop = `${navHeight}px`;
+        } else {
+          navbarExtraOptions.classList.remove('header-shop-sub-extras-sticky');
+            // contentBesidesNav.style.marginTop = "0px"
+        }
+      });
+  </script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Header settings",
+    "class": "UEQ Sections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "UEQ Shop header settings"
+      },
+      {
+        "type": "text",
+        "id": "copyright_statement",
+        "label": "Copyright text",
+        "default": "Copyright 2021 ultrA electriquE industries",
+        "info": "Enter copyright statement"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Enter title for page",
+        "default": "UltrA ElectriquE",
+        "info": "Enter text"
+      },
+      {
+        "type": "url",
+        "id": "logo_page_url",
+        "label": "Add logo link"
+      }, {
+        "type": "text",
+        "id": "sub_extra_text",
+        "label": "Text for the sub extras",
+        "default": "33°12`08.9`N 87°07`52.0`W",
+        "info": "Enter text for the sub extras"
+      }, {
+        "type": "color",
+        "id": "shop_header_color",
+        "label": "Pick a color",
+        "default": "#ffffff",
+        "info": "Color of header background"
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of title"
+      }, {
+        "type": "color",
+        "id": "menu_hover_color",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of hover on menu items"
+      }, {
+        "type": "color",
+        "id": "header_deco",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of bottom stroke on header"
+      }, {
+        "type": "color",
+        "id": "cart_bubble_color",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Color of cart bubble"
+      }, {
+        "type": "color",
+        "id": "cart_bubble_text_color",
+        "label": "Pick a color",
+        "default": "#ffffff",
+        "info": "Color of text inside cart bubble"
+      }, {
+        "type": "paragraph",
+        "content": "Developed by DigitalDepth"
+      }
+    ]
+  }
+{% endschema %}
