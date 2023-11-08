@@ -25,6 +25,8 @@
    .ueq-modal-container {
      border: 2px solid{{ section.settings.modal_border_color }};
      color: {{ section.settings.modal_text_colo }};
+     overflow: scroll;
+     height: 70vh;
    }
 
    .ueq-modal-container .ueq-modal-header button {
@@ -72,6 +74,7 @@
    #admin_log-modal,
    #contact-modal {
      width: 600px !important;
+     max-width: 600px
    }
 
    #about-modal .ueq-modal-body p {
