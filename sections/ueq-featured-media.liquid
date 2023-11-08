@@ -1,21 +1,33 @@
 {% style %}
-  .ueq-featured-media-container {
-    background-color: {{ section.settings.background_color }};
+    .ueq-featured-media-container {
+      /* background-color: {{ section.settings.background_color }}; */
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem ;
+    }
+
+    @media screen and (min-width: 60rem) {
+      .ueq-featured-media-container {
+      width: 70%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px;
+    }
   }
 
-  .ueq-featured-media-wrapper {
-    background-color: {{ section.settings.foreground_color }};
-  }
+    .ueq-featured-media-wrapper {
+      background-color: {{ section.settings.foreground_color }};
+    }
 
-  .ueq-featured-media-title {
-    color: {{ section.settings.title_color }};
-    background-color: {{ section.settings.background_color }};
-  }
+    .ueq-featured-media-title {
+      color: {{ section.settings.title_color }};
+      background-color: {{ section.settings.background_color }};
+    }
 
-  .ueq-featured-media-title-link,
-  .ueq-featured-media-title-link:active,
-  .ueq-featured-media-title-link:visited {
-    color: {{ section.settings.title_color }}}
+    .ueq-featured-media-title-link,
+    .ueq-featured-media-title-link:active,
+    .ueq-featured-media-title-link:visited {
+      color: {{ section.settings.title_color }}}
 {% endstyle %}
 
 {% if section.settings.featured_media_url != blank %}

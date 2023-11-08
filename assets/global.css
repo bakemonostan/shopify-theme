@@ -694,10 +694,17 @@
 .ueq-shop-header-container .header-shop-sub-extras {
   display: grid;
   grid-template-rows: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-row-start: 0;
   border-bottom: 1px solid #000;
 }
+
+@media screen and (min-width: 486px) {
+  .ueq-shop-header-container .header-shop-sub-extras {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 .ueq-shop-header-container .header-shop-sub-extras .sub-extra-info {
   text-align: center;
   font-size: 15px;
@@ -705,6 +712,7 @@
 @media screen and (max-width: 486px) {
   .ueq-shop-header-container .header-shop-sub-extras .sub-extra-info {
     font-size: 10px;
+    width: 100%;
   }
 }
 .ueq-shop-header-container .header-shop-sub-extras .passenger-information {
@@ -832,7 +840,7 @@
   grid-template-columns: 1fr 1fr;
 }
 .ueq-shop-product-grid-wrapper-auto {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
 }
 .ueq-shop-collection-container {
   margin-bottom: 50px;
@@ -1001,7 +1009,7 @@
   .featured-image-wrapper {
   width: 100%;
   height: 100%;
-  padding: 50px;
+  /* padding: 50px; */
 }
 .ueq-featured-media-container
   .ueq-featured-media-wrapper
@@ -1012,7 +1020,8 @@
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+  object-fit: cover;
+  background-position: center;
 }
 .ueq-featured-media-container
   .ueq-featured-media-wrapper

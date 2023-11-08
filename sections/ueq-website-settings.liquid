@@ -4,11 +4,11 @@
         color: {{ section.settings.text_color }};
     }
 
-    ::-moz-selection { 
+    ::-moz-selection {
         color: {{ section.settings.selection_text_color}};
         background: {{ section.settings.selection_background_color }};
       }
-      
+
       ::selection {
         color: {{ section.settings.selection_text_color }};
         background: {{ section.settings.selection_background_color }};
@@ -25,7 +25,14 @@
 
     .ueq-menu-wrapper{
         border-left: 3px solid {{ section.settings.website_border_color }};
+        min-height: 60vh;
     }
+
+    @media screen and (min-width: 486px) {
+      .ueq-menu-wrapper{
+      min-height: auto;
+    }
+  }
 
     .ueq-menu-wrapper .item-line{
         background-color: {{ section.settings.website_border_color }};
@@ -43,74 +50,70 @@
     .legals a, .legals span{
         color: {{ section.settings.legal_color }}
     }
-
 {% endstyle %}
 
 {% schema %}
 {
-    "name": "Website settings",
-    "settings": [
-        {
-            "type": "header",
-            "content": "General settings"
-        },
-        {
-            "type": "color",
-            "id": "website_background_color",
-            "label": "Pick a color",
-            "default": "#000000",
-            "info": "This changes the background color."
-        },
-        {
-            "type": "color",
-            "id": "website_border_color",
-            "label": "Pick a color",
-            "default": "#fff056",
-            "info": "This changes colors of the surrounding lines and copyright text."
-        },
-       {
-           "type": "color",
-           "id": "server_status_color",
-           "label": "Pick a color",
-           "default": "#00ff00",
-           "info": "This changes the color of the blinking server status text"
-       },
-        {
-            "type": "header",
-            "content": "Text selection settings"
-        },
-        {
-            "type": "color",
-            "id": "selection_background_color",
-            "label": "Pick a color",
-            "default": "#fff056",
-            "info": "Selection background color, the outside when selected"
-        },
-        {
-            "type": "color",
-            "id": "selection_text_color",
-            "label": "Pick a color",
-            "default": "#000000",
-            "info": "Selection text color, the inside when selected"
-        },
-        {
-            "type": "header",
-            "content": "Text settings"
-        },
-       {
-           "type": "color",
-           "id": "legal_color",
-           "label": "Pick a color",
-           "default": "#fff056",
-           "info": "Color of the legal links"
-       },
-        {
-            "type": "paragraph",
-            "content": "Developed by DigitalDepth"
-        }
-    ]
-
-
-    
+  "name": "Website settings",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General settings"
+    },
+    {
+      "type": "color",
+      "id": "website_background_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "This changes the background color."
+    },
+    {
+      "type": "color",
+      "id": "website_border_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "This changes colors of the surrounding lines and copyright text."
+    },
+    {
+      "type": "color",
+      "id": "server_status_color",
+      "label": "Pick a color",
+      "default": "#00ff00",
+      "info": "This changes the color of the blinking server status text"
+    },
+    {
+      "type": "header",
+      "content": "Text selection settings"
+    },
+    {
+      "type": "color",
+      "id": "selection_background_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Selection background color, the outside when selected"
+    },
+    {
+      "type": "color",
+      "id": "selection_text_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "Selection text color, the inside when selected"
+    },
+    {
+      "type": "header",
+      "content": "Text settings"
+    },
+    {
+      "type": "color",
+      "id": "legal_color",
+      "label": "Pick a color",
+      "default": "#fff056",
+      "info": "Color of the legal links"
+    },
+    {
+      "type": "paragraph",
+      "content": "Developed by DigitalDepth"
+    }
+  ]
 }
 {% endschema %}
