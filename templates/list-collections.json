@@ -2,12 +2,29 @@
   "sections": {
     "featured_media": {
       "type": "ueq-featured-media",
+      "disabled": true,
       "settings": {
+        "featured_media_title": "",
+        "title_color": "#000000",
+        "background_color": "#E9E9E9",
+        "foreground_color": "#ffffff",
+        "video_url": "",
+        "embed_video_url": "",
+        "autoplay_video": true,
+        "controls_video": true,
+        "mute_video": true,
+        "loop_video": true,
+        "featured_media_url": "",
+        "url_new_tab": true
       }
     },
     "collections": {
       "type": "ueq-shop-collections",
       "settings": {
+        "collections_list_title": "Collections",
+        "view_all_text": "ALL PRODUCTS",
+        "list_item_color": "#000000",
+        "list_item_hover_color": "#fff056"
       }
     }
   },
