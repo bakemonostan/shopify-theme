@@ -1,164 +1,219 @@
 {% style %}
   .ueq-featured-media-container {
-    background-color: {{ section.settings.background_color}};
+    background-color: {{ section.settings.background_color }};
   }
 
   .ueq-featured-media-wrapper {
-    background-color: {{ section.settings.foreground_color}};
+    background-color: {{ section.settings.foreground_color }};
   }
 
   .ueq-featured-media-title {
-    color: {{ section.settings.title_color}};
-    background-color: {{ section.settings.background_color}};
+    color: {{ section.settings.title_color }};
+    background-color: {{ section.settings.background_color }};
   }
 
   .ueq-featured-media-title-link,
   .ueq-featured-media-title-link:active,
   .ueq-featured-media-title-link:visited {
-    color: {{ section.settings.title_color}}}
+    color: {{ section.settings.title_color }}}
 {% endstyle %}
 
 {% if section.settings.featured_media_url != blank %}
-  <a href="{{section.settings.featured_media_url}}" class="ueq-featured-media-title-link" {% if section.settings.url_new_tab %}target="_blank"{% endif %} rel="noopener noreferrer">
-    <h2 class="ueq-featured-media-title">{{section.settings.featured_media_title}}</h2>
+  <a
+    href="{{ section.settings.featured_media_url }}"
+    class="ueq-featured-media-title-link"
+    {% if section.settings.url_new_tab %}
+      target="_blank"
+    {% endif %}
+    rel="noopener noreferrer"
+  >
+    <h2 class="ueq-featured-media-title">{{ section.settings.featured_media_title }}</h2>
   </a>
-{%else%}
-  <h2 class="ueq-featured-media-title">{{section.settings.featured_media_title}}</h2>
-{%endif%}
+{% else %}
+  <h2 class="ueq-featured-media-title">{{ section.settings.featured_media_title }}</h2>
+{% endif %}
 
-{% if section.settings.featured_media_url != blank and section.settings.video_url == blank and section.settings.embed_video_url == blank  %}
-  <a href="{{section.settings.featured_media_url}}" {% if section.settings.url_new_tab %}target="_blank"{% endif %} rel="noopener noreferrer">
-  {% endif %}
-  <div class="ueq-featured-media-container">
-    <div class="ueq-featured-media-wrapper">
-      {% if section.settings.image != blank and section.settings.video_url == blank and section.settings.embed_video_url == blank%}
-        <div class="featured-image-wrapper">
-          <img src="{{section.settings.image | image_url}}" alt="{{section.settings.image.alt}}">
-        </div>
-      {% endif %}
+{% if section.settings.featured_media_url != blank
+  and section.settings.video_url == blank
+  and section.settings.embed_video_url == blank
+%}
+  <a
+    href="{{ section.settings.featured_media_url }}"
+    {% if section.settings.url_new_tab %}
+      target="_blank"
+    {% endif %}
+    rel="noopener noreferrer"
+  >
+{% endif %}
+<div class="ueq-featured-media-container">
+  <div class="ueq-featured-media-wrapper">
+    {% if section.settings.image != blank
+      and section.settings.video_url == blank
+      and section.settings.embed_video_url == blank
+    %}
+      <div class="featured-image-wrapper">
+        <img
+          src="{{ section.settings.image | image_url }}"
+          height="auto"
+          width="auto"
+          loading="lazy"
+          alt="{{ section.settings.image.alt }}"
+        >
+      </div>
+    {% endif %}
 
-      {% if section.settings.image == blank and section.settings.video_url != blank and section.settings.embed_video_url == blank %}
-        <div class="featured-file-video-wrapper">
-          <video {% if section.settings.autoplay_video == true %}autoplay
-            {% endif %}{% if section.settings.controls_video == true %}controls
-            {% endif %}{% if section.settings.mute_video == true %}mute
-            {% endif %}{% if section.settings.loop_video == true %}loop
-            {% endif %}><source src="{{section.settings.video_url}}" type="video/mp4">
-          </video>
-        </div>
-      {% endif %}
+    {% if section.settings.image == blank
+      and section.settings.video_url != blank
+      and section.settings.embed_video_url == blank
+    %}
+      <div class="featured-file-video-wrapper">
+        <video
+          {% if section.settings.autoplay_video == true %}
+            autoplay
+          {% endif -%}
+          {% if section.settings.controls_video == true %}
+            controls
+          {% endif -%}
+          {% if section.settings.mute_video == true %}
+            mute
+          {% endif -%}
+          {% if section.settings.loop_video == true %}
+            loop
+          {% endif %}
+        >
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+      </div>
+    {% endif %}
 
-      {% assign video_id = section.settings.embed_video_url | split: 'v=' | slice: 1 %}
-      {% capture build_embed_video_url %}https://www.youtube.com/embed/{{video_id}}?autoplay={% if section.settings.autoplay_video == true %}1{%else%}0{% endif %}&controls={% if section.settings.controls_video == true %}1{%else%}0{% endif %}&mute={% if section.settings.mute_video == true %}1{%else%}0{% endif %}
-      {% endcapture%}
-      {% if section.settings.image == blank and section.settings.video_url == blank and section.settings.embed_video_url != blank %}
-        <div class="featured-embed-video-wrapper">
-          <iframe src="{{build_embed_video_url}}" allow="autoplay"></iframe>
-        </div>
-      {% endif %}
-    </div>
+    {% assign video_id = section.settings.embed_video_url | split: 'v=' | slice: 1 %}
+    {% capture build_embed_video_url %}https://www.youtube.com/embed/{{ video_id }}?autoplay={% if section.settings.autoplay_video == true %}1{%else%}0{% endif %}&controls={% if section.settings.controls_video == true %}1{%else%}0{% endif %}&mute={% if section.settings.mute_video == true %}1{%else%}0{% endif %}
+      {% endcapture %}
+    {% if section.settings.image == blank
+      and section.settings.video_url == blank
+      and section.settings.embed_video_url != blank
+    %}
+      <div class="featured-embed-video-wrapper">
+        <iframe src="{{ build_embed_video_url }}" allow="autoplay"></iframe>
+      </div>
+    {% endif %}
   </div>
-  {% if section.settings.featured_media_url != blank %}
+</div>
+{% if section.settings.featured_media_url != blank %}
   </a>
 {% endif %}
 
-
-
 {% schema %}
-  {
-    "name": "Featured media settings",
-    "class": "UEQ Sections",
-    "settings": [
-      {
-        "type": "header",
-        "content": "UEQ featured media settings"
-      },
-      {
-        "type": "paragraph",
-        "content": "WARNING! Only video or image/gif allowed! It is not allowed to add both."
-      },
-      {
-        "type": "text",
-        "id": "featured_media_title",
-        "label": "Title for featured media",
-        "info": "Enter text"
-      },
-      {
-        "type": "color",
-        "id": "title_color",
-        "label": "Pick a color",
-        "default": "#000000",
-        "info": "Color of title"
-      }, {
-        "type": "color",
-        "id": "background_color",
-        "label": "Pick a color",
-        "default": "#E9E9E9",
-        "info": "Background color for featured_media"
-      }, {
-        "type": "color",
-        "id": "foreground_color",
-        "label": "Pick a color",
-        "default": "#ffffff",
-        "info": "Foreground color for featured_media"
-      }, {
-        "type": "header",
-        "content": "Add image/gif"
-      }, {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Select image"
-      }, {
-        "type": "header",
-        "content": "Add video"
-      }, {
-        "type": "paragraph",
-        "content": "WARNING! Choose one of the video options, not allowed to use both"
-      }, {
-        "type": "url",
-        "id": "video_url",
-        "label": "OPTION 1 - Add video url, only mp4 (NO YOUTUBE)"
-      }, {
-        "type": "video_url",
-        "id": "embed_video_url",
-        "label": "Option 2 - Add video url (ONLY YOUTUBE)",
-        "accept": ["youtube"]
-      }, {
-        "type": "checkbox",
-        "id": "autoplay_video",
-        "label": "Make video play automatically",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "controls_video",
-        "label": "Enable video controls",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "mute_video",
-        "label": "Mute video",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "loop_video",
-        "label": "Loop video",
-        "default": true
-      }, {
-        "type": "header",
-        "content": "URL settings"
-      }, {
-        "type": "url",
-        "id": "featured_media_url",
-        "label": "Add URL to send user to URL when user clicks"
-      }, {
-        "type": "checkbox",
-        "id": "url_new_tab",
-        "label": "Open URL in new tab",
-        "default": true
-      }, {
-        "type": "paragraph",
-        "content": "Developed by DigitalDepth"
-      }
-    ]
-  }
+{
+  "name": "Featured media settings",
+  "class": "UEQ Sections",
+  "settings": [
+    {
+      "type": "header",
+      "content": "UEQ featured media settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "WARNING! Only video or image/gif allowed! It is not allowed to add both."
+    },
+    {
+      "type": "text",
+      "id": "featured_media_title",
+      "label": "Title for featured media",
+      "info": "Enter text"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Pick a color",
+      "default": "#000000",
+      "info": "Color of title"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Pick a color",
+      "default": "#E9E9E9",
+      "info": "Background color for featured_media"
+    },
+    {
+      "type": "color",
+      "id": "foreground_color",
+      "label": "Pick a color",
+      "default": "#ffffff",
+      "info": "Foreground color for featured_media"
+    },
+    {
+      "type": "header",
+      "content": "Add image/gif"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Select image"
+    },
+    {
+      "type": "header",
+      "content": "Add video"
+    },
+    {
+      "type": "paragraph",
+      "content": "WARNING! Choose one of the video options, not allowed to use both"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "OPTION 1 - Add video url, only mp4 (NO YOUTUBE)"
+    },
+    {
+      "type": "video_url",
+      "id": "embed_video_url",
+      "label": "Option 2 - Add video url (ONLY YOUTUBE)",
+      "accept": ["youtube"]
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_video",
+      "label": "Make video play automatically",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "controls_video",
+      "label": "Enable video controls",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mute_video",
+      "label": "Mute video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop_video",
+      "label": "Loop video",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "URL settings"
+    },
+    {
+      "type": "url",
+      "id": "featured_media_url",
+      "label": "Add URL to send user to URL when user clicks"
+    },
+    {
+      "type": "checkbox",
+      "id": "url_new_tab",
+      "label": "Open URL in new tab",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "Developed by DigitalDepth"
+    }
+  ]
+}
 {% endschema %}
