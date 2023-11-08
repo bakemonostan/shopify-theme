@@ -243,13 +243,17 @@
     opacity: 0;
   }
 }
+
+#about-modal .ueq-menu-wrapper {
+  background: red;
+}
 .ueq-menu-container {
   height: 100%;
   position: relative;
 }
 .ueq-modal-container {
   position: absolute;
-  top: -15%;
+  top: 5%;
   left: 0;
   right: 0;
   margin: auto;
@@ -265,6 +269,12 @@
   color: #000;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 630px) {
+  .ueq-modal-container {
+    top: -15%;
+  }
 }
 .ueq-modal-container .ueq-modal-header p {
   margin: 0 0 0 20px;
