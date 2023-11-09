@@ -1,3 +1,35 @@
+function getFormattedDate() {
+  var currentDate = new Date();
+  var monthNames = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
+  ];
+  var month = monthNames[currentDate.getMonth()];
+  var day = currentDate.getDate();
+  var hours = currentDate.getHours();
+  var minutes = currentDate.getMinutes();
+
+  // Pad the day, hours, and minutes with leading zeros if necessary
+  day = day < 10 ? "0" + day : day;
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+
+  return `${month} ${day} - ${hours}:${minutes}`;
+}
+
+// Update the Termynal configuration to use the formatted date
+var formattedDate = getFormattedDate();
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -380,7 +412,7 @@ function _createClass(Constructor, protoProps, staticProps) {
                 {
                   type: "input",
                   prompt: "$",
-                  value: "ABOUT OF uE - JAN 23 - 19:16",
+                  value: "ABOUT OF uE -" + formattedDate,
                 },
                 {
                   type: "progress",
@@ -434,7 +466,7 @@ function _createClass(Constructor, protoProps, staticProps) {
                 {
                   type: "input",
                   prompt: "$",
-                  value: "ABOUT OF uE - JAN 23 - 19:16",
+                  value: "ABOUT OF uE - " + formattedDate,
                 },
                 {
                   type: "progress",
@@ -498,7 +530,7 @@ function _createClass(Constructor, protoProps, staticProps) {
                 {
                   type: "input",
                   prompt: "$",
-                  value: "ADMING_LOG OF uE - JAN 23 - 19:16",
+                  value: "ADMING_LOG OF uE - " + formattedDate,
                 },
                 {
                   type: "progress",
@@ -552,7 +584,7 @@ function _createClass(Constructor, protoProps, staticProps) {
                 {
                   type: "input",
                   prompt: "$",
-                  value: "ADMING_LOG OF uE - JAN 23 - 19:16",
+                  value: "ADMING_LOG OF uE - " + formattedDate,
                 },
                 {
                   type: "progress",

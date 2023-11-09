@@ -247,6 +247,25 @@
 #about-modal .ueq-menu-wrapper {
   background: red;
 }
+
+#about-modal {
+  height: 40vh;
+}
+
+@media screen and (min-width: 525px) {
+  #about-modal {
+    height: auto;
+    overflow: auto;
+  }
+  #shop-modal,
+  #admin_log-modal,
+  #contact-modal {
+    height: auto;
+    overflow: auto;
+    top: 15%;
+  }
+}
+
 .ueq-menu-container {
   height: 100%;
   position: relative;
@@ -273,7 +292,6 @@
 
 @media screen and (min-width: 630px) {
   .ueq-modal-container {
-    top: -15%;
   }
 }
 .ueq-modal-container .ueq-modal-header p {
@@ -346,7 +364,7 @@
   width: 90%;
   margin: 0 auto;
 }
-#admin_log-modal .ueq-modal-body {
+#admin_log-modal .body {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -1071,7 +1089,6 @@
 @media screen and (max-width: 486px) {
   .ueq-product-container .ueq-product-wrapper .product-wrapper {
     grid-template-columns: 1fr;
-    margin-bottom: 740px;
   }
 }
 .ueq-product-container
@@ -1089,6 +1106,7 @@
     .product-wrapper
     .product-information-wrapper {
     position: unset;
+    height: auto;
   }
 }
 .ueq-product-container
@@ -1549,7 +1567,7 @@ body {
   font-family: "Squared";
 }
 .content-for-layout {
-  height: 100vh;
+  /* height: 100vh; */
 }
 .template-404 h1 {
   font-family: "Zekton";
@@ -1567,7 +1585,23 @@ body {
   padding-bottom: 20px;
   text-transform: lowercase;
   font-size: 10px;
+  flex-wrap: wrap;
 }
+/* .legals {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  text-transform: lowercase;
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: auto;
+} */
+
 .legals span {
   padding: 0 5px;
 }
