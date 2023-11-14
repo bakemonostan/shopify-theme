@@ -1,5 +1,14 @@
 {
   "sections": {
+    "343f5f72-e107-4ed8-8ae2-71d71775ebe6": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": true
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -7,6 +16,7 @@
     }
   },
   "order": [
+    "343f5f72-e107-4ed8-8ae2-71d71775ebe6",
     "main"
   ]
 }
