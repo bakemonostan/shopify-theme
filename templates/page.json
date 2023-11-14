@@ -1,5 +1,14 @@
 {
   "sections": {
+    "92916663-bbac-4dcf-aaab-50837db241d9": {
+      "type": "video",
+      "settings": {
+        "heading": "Video",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -7,6 +16,7 @@
     }
   },
   "order": [
+    "92916663-bbac-4dcf-aaab-50837db241d9",
     "main"
   ]
 }
