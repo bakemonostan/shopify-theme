@@ -2,8 +2,28 @@
   "sections": {
     "main": {
       "type": "about-page",
-      "settings": {}
+      "settings": {
+      }
+    },
+    "51bdf15e-1f47-4a67-a692-58c47d851b01": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "51bdf15e-1f47-4a67-a692-58c47d851b01"
+  ]
 }
