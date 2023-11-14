@@ -1,10 +1,5 @@
 {
   "sections": {
-    "main": {
-      "type": "about-page",
-      "settings": {
-      }
-    },
     "005ecf5e-fac1-467c-9045-4941fc8974ad": {
       "type": "video",
       "settings": {
@@ -13,10 +8,15 @@
         "description": "",
         "full_width": true
       }
+    },
+    "main": {
+      "type": "about-page",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main",
-    "005ecf5e-fac1-467c-9045-4941fc8974ad"
+    "005ecf5e-fac1-467c-9045-4941fc8974ad",
+    "main"
   ]
 }
