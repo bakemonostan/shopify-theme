@@ -27,9 +27,6 @@
      font-size: 1.4rem;
    }
   }
-
-
-
   .about_video video{
       width: 100%;
     height: 100%;
@@ -39,7 +36,7 @@
 
 <section>
   <div class="about_video">
-    {{ section.settings.test_video | video_tag: loop: true, autoplay: true, muted: true }}
+    {{ section.settings.about_video | video_tag: loop: true, autoplay: true, muted: true }}
   </div>
 
   <div class="about_info">
@@ -65,51 +62,14 @@
       "type": "header",
       "content": "Add video"
     },
-    {
-      "type": "paragraph",
-      "content": "WARNING! Choose one of the video options, not allowed to use both"
-    },
-    {
-      "type": "url",
-      "id": "video_url",
-      "label": "OPTION 1 - Add video url, only mp4 (NO YOUTUBE)"
-    },
+
+
           {
       "type": "video",
-      "id": "test_video",
-      "label": "test_video"
-          },
+      "id": "about_video",
+      "label": "about_video"
+          }
 
-    {
-      "type": "video_url",
-      "id": "embed_video_url",
-      "label": "Option 2 - Add video url (ONLY YOUTUBE)",
-      "accept": ["youtube"]
-    },
-    {
-      "type": "checkbox",
-      "id": "autoplay_video",
-      "label": "Make video play automatically",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "controls_video",
-      "label": "Enable video controls",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "mute_video",
-      "label": "Mute video",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "loop_video",
-      "label": "Loop video",
-      "default": true
-    }
   ],
 
   "presets": [
