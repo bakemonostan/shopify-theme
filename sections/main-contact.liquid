@@ -1,42 +1,45 @@
 {% style %}
-    .contact_form_container{
-      width:90%;
-      max-width: 60rem;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      margin: 0 auto;
-      padding: 1rem 2rem 3rem;
-      border: solid 3px;
-      border-radius: 2rem;
-      margin-top: 4rem;
-      text-align: center;
-    }
-
-      .contact_form_container h3, .contact_form_container a, .contact_form_container p{
-        font-weight: bold;
-        color: black;
+      .contact_form_container{
+        width:90%;
+        max-width: 60rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin: 0 auto;
+        padding: 1rem 2rem 3rem;
+        border: solid 3px;
+        border-radius: 2rem;
+        margin-top: 4rem;
+        text-align: center;
       }
 
-    .contact_form_container a, {
-  text-decoration: underline
-    }
+        .contact_form_container h3, .contact_form_container a, .contact_form_container p{
+          font-weight: bold;
+          color: black;
+        }
 
+      .contact_form_container a, {
+        text-decoration: underline;
+        font-size: 1.5rem;
+      }
+  .contact_form_container p,{
+    font-size: 1.2rem;
+  }
 
-    .field{
-      margin: 1.5rem 0;
-    }
+      .field{
+        margin: 1.5rem 0;
+      }
 
-    .button{
-      width: 100%;
-    }
+      .button{
+        width: 100%;
+      }
 
-      @media screen and (min-width: 480px) {
-    .contact_form_container{
-        padding: 1rem 10rem ;
-         border-radius: 4rem;
-    }
-    }
+        @media screen and (min-width: 480px) {
+      .contact_form_container{
+          padding: 1rem 10rem ;
+           border-radius: 4rem;
+      }
+      }
 {% endstyle %}
 
 <div class="contact_form_container">
