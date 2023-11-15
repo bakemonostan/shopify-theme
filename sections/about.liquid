@@ -26,7 +26,7 @@
             loop
           {% endif %}
         >
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
+          <source src="{{ section.settings.video_url | asset_url }}" type="video/mp4">
         </video>
       </div>
     {% endif %}
@@ -50,11 +50,6 @@
       "content": "Add video"
     },
     {
-      "type": "video",
-      "id": "about_video",
-      "label": "Add video here"
-    },
-    {
       "type": "paragraph",
       "content": "WARNING! Choose one of the video options, not allowed to use both"
     },
@@ -62,6 +57,12 @@
       "type": "url",
       "id": "video_url",
       "label": "OPTION 1 - Add video url, only mp4 (NO YOUTUBE)"
+    },
+    {
+      "type": "video_url",
+      "id": "embed_video_url",
+      "label": "Option 2 - Add video url (ONLY YOUTUBE)",
+      "accept": ["youtube"]
     },
     {
       "type": "checkbox",
