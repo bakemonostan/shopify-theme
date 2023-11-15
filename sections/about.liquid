@@ -23,7 +23,7 @@
 </div>
 <p>Video below</p> 
 <div class='test'>
-    {{ section.settings.test_video | video_tag | image_url }}
+    {{ section.settings.test_video | video_tag: loop: true, autoplay: true, muted: true }}
 </div>
 <!-- <video>
   <source src="{{ section.settings.test_video |  asset_url }}"  type="video/mp4" />
