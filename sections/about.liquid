@@ -5,7 +5,7 @@
   </p>
 </div>
 <p>Video below</p> 
-  {{ section.settings.test_video.size }}
+  {{ section.settings.test_video | video_tag | asset_url }}
 <video>
   <source src="{{ section.settings.test_video | video_tag | asset_url }}"  type="video/mp4" />
 </video>
