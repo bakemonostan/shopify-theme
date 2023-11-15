@@ -3,11 +3,22 @@
     "product": {
       "type": "ueq-product",
       "settings": {
+        "buy_button_color": "#fff056",
+        "buy_button_text_color": "#000000",
+        "buy_button_edges": "round",
+        "product_video": "shopify:\/\/files\/videos\/Big_Buck_Bunny_720_10s_5MB.mp4",
+        "selected_option_button_color": "#fff056",
+        "selected_option_button_text_color": "#000000",
+        "option_button_border_color": "#000000",
+        "option_edges": "square",
+        "size_guide_page": "",
+        "size_guide_link_color": "#000000"
       }
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
+        "heading": "YOU MAY ALSO LIKE..."
       }
     }
   },

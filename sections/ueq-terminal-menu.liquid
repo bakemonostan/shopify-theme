@@ -120,10 +120,12 @@
             <a class="ueq-menu-title no-select" href="{{ link.url }}">[{{ link.title | upcase }}]</a>
           {% endif %}
 
-          {% if downcase_title == 'admin log' %}
-            {% assign admin_title = 'admin_log' %}
-            {% assign title_field = admin_title | append: '_modal_title' %}
-            {% assign title_menu = admin_title | append: '_modal_title' %}
+          {% if downcase_title == '' %}
+            {% comment %} {% assign admin_title = 'admin_log' %} {% endcomment %}
+            {% comment %}
+              {% assign title_field = admin_title | append: '_modal_title' %}
+              {% assign title_menu = admin_title | append: '_modal_title' %}
+            {% endcomment %}
             <input type="hidden" id="{{ title_menu }}" value="{{ section.settings[title_field] }}">
 
             {% for block in section.blocks %}
