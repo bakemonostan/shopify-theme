@@ -1,5 +1,11 @@
 {
   "sections": {
+    "main": {
+      "type": "about",
+      "settings": {
+        "page": "about"
+      }
+    },
     "343f5f72-e107-4ed8-8ae2-71d71775ebe6": {
       "type": "video",
       "settings": {
@@ -8,16 +14,10 @@
         "description": "",
         "full_width": true
       }
-    },
-    "main": {
-      "type": "about",
-      "settings": {
-        "page": "about"
-      }
     }
   },
   "order": [
-    "343f5f72-e107-4ed8-8ae2-71d71775ebe6",
-    "main"
+    "main",
+    "343f5f72-e107-4ed8-8ae2-71d71775ebe6"
   ]
 }
