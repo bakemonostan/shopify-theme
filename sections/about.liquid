@@ -7,6 +7,29 @@
   </p>
 </div>
   <div>
+      {% if section.settings.image == blank
+      and section.settings.video_url != blank
+      and section.settings.embed_video_url == blank
+    %}
+      <div class="featured-file-video-wrapper">
+        <video
+          {% if section.settings.autoplay_video == true %}
+            autoplay
+          {% endif -%}
+          {% if section.settings.controls_video == true %}
+            controls
+          {% endif -%}
+          {% if section.settings.mute_video == true %}
+            mute
+          {% endif -%}
+          {% if section.settings.loop_video == true %}
+            loop
+          {% endif %}
+        >
+          <source src="{{ section.settings.video_url }}" type="video/mp4">
+        </video>
+      </div>
+    {% endif %}
   </div>
 </section>
 
