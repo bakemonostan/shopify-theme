@@ -10,7 +10,7 @@
       }
     },
     "main": {
-      "type": "main-page",
+      "type": "about",
       "settings": {
       }
     }
