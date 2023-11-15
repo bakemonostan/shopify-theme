@@ -2,10 +2,12 @@
   <div class="template-404 page-width page-margin center">
   <p class="">
     {{ section.settings.page.content }}
+    
+ 
   </p>
 </div>
   <div>
- 
+    {{ section.settings.video }}
   </div>
 </section>
 
@@ -18,6 +20,12 @@
     {
       "type": "page",
       "id": "page",
+      "label": "sections.page.settings.page.label",
+      "info":"sections.page.settings"
+    },
+     {
+      "type": "video",
+      "id": "video",
       "label": "sections.page.settings.page.label",
       "info":"sections.page.settings"
     }
