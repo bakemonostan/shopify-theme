@@ -4,7 +4,7 @@
       "type": "about",
       "settings": {
         "page": "about",
-        "video_url": "shopify:\/\/collections",
+        "video_url": "",
         "embed_video_url": "https:\/\/www.youtube.com\/watch?v=bbd8zLhtONA&t=436s",
         "autoplay_video": true,
         "controls_video": true,
