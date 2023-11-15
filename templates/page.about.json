@@ -3,7 +3,13 @@
     "main": {
       "type": "about",
       "settings": {
-        "page": "about"
+        "page": "about",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=bbd8zLhtONA&t=436s",
+        "embed_video_url": "",
+        "autoplay_video": true,
+        "controls_video": true,
+        "mute_video": true,
+        "loop_video": true
       }
     },
     "343f5f72-e107-4ed8-8ae2-71d71775ebe6": {
