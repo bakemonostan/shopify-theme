@@ -1,29 +1,25 @@
 {% style %}
- .test{
+   .about_info p{
+    font-weight: bold;
+   }
 
- }
+  .about_video {
+      aspect-ration: 1/1;
+      object-fit: cover;
 
-.about_video {
-    aspect-ration: 1/1;
-    object-fit: cover;
-  
-}
+  }
 {% endstyle %}
 
-
-
 <section>
-
-<div class='about_video'>
+  <div class="about_video">
     {{ section.settings.test_video | video_tag: loop: true, autoplay: true, muted: true }}
-</div>
+  </div>
 
-    <div class="about_info">
-  <p class="">
-    {{ section.settings.page.content }}
-  </p>
-</div>
-
+  <div class="about_info">
+    <p class="">
+      {{ section.settings.page.content }}
+    </p>
+  </div>
 </section>
 
 {% schema %}
@@ -56,7 +52,7 @@
       "id": "test_video",
       "label": "test_video"
           },
-      
+
     {
       "type": "video_url",
       "id": "embed_video_url",
@@ -98,7 +94,6 @@
 {% endschema %}
 
 {% stylesheet %}
-
 {% endstylesheet %}
 
 {% javascript %}
