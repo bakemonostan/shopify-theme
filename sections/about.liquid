@@ -1,5 +1,6 @@
 {% style %}
     .about_info{
+       width:90%;
       max-width: 76rem;
       margin: 0 auto;
       border: solid 3px;
@@ -39,7 +40,7 @@
 
 <section>
   <div class="about_video">
-    {{ section.settings.test_video | video_tag: loop: true, autoplay: true, muted: true }}
+    {{ section.settings.about_video | video_tag: loop: true, autoplay: true, muted: true }}
   </div>
 
   <div class="about_info">
