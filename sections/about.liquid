@@ -6,6 +6,9 @@
  
   </p>
 </div>
+
+        {{ section.settings.test_video }}
+  
   <div>
       {% if section.settings.image == blank
       and section.settings.video_url != blank
@@ -26,7 +29,7 @@
             loop
           {% endif %}
         >
-          <source src="{{section.settings.test_video  | asset_url }}" type="video/mp4">
+          <source src="{{ section.settings.video_url | asset_url }}" type="video/mp4">
         </video>
 
       </div>
