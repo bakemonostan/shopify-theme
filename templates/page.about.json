@@ -5,6 +5,7 @@
       "settings": {
         "page": "about",
         "video_url": "",
+        "test_video": "shopify:\/\/files\/videos\/Big_Buck_Bunny_720_10s_5MB.mp4",
         "embed_video_url": "",
         "autoplay_video": true,
         "controls_video": true,

@@ -6,10 +6,10 @@
 </div>
 <p>Video below</p> 
   {{ section.settings.test_video.sources }}
-<!-- <video>
-  <source src="{{ section.settings.test_video }}"  type="video/mp4" />
+<video>
+  <source src="{{ section.settings.test_video | video_tag | asset_url }}"  type="video/mp4" />
 </video>
-   -->
+  
   <!-- <div>
       {% if section.settings.image == blank
       and section.settings.video_url != blank
