@@ -30,18 +30,6 @@
         </video>
       </div>
     {% endif %}
-
-        {% assign video_id = section.settings.embed_video_url | split: 'v=' | slice: 1 %}
-    {% capture build_embed_video_url %}https://www.youtube.com/embed/{{ video_id }}?autoplay={% if section.settings.autoplay_video == true %}1{%else%}0{% endif %}&controls={% if section.settings.controls_video == true %}1{%else%}0{% endif %}&mute={% if section.settings.mute_video == true %}1{%else%}0{% endif %}
-      {% endcapture %}
-    {% if section.settings.image == blank
-      and section.settings.video_url == blank
-      and section.settings.embed_video_url != blank
-    %}
-      <div class="featured-embed-video-wrapper">
-        <iframe src="{{ build_embed_video_url }}" allow="autoplay"></iframe>
-      </div>
-    {% endif %}
   </div>
 </section>
 
