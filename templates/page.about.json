@@ -7,8 +7,12 @@
       }
     },
     "343f5f72-e107-4ed8-8ae2-71d71775ebe6": {
-      "type": "about-video",
+      "type": "video",
       "settings": {
+        "heading": "",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": true
       }
     }
   },
