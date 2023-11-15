@@ -15,19 +15,17 @@
 
 
 <section>
-  <div class="template-404 page-width page-margin center">
+
+<div class='test'>
+    {{ section.settings.test_video | video_tag: loop: true, autoplay: true, muted: true }}
+</div>
+
+    <div class="template-404 page-width page-margin center">
   <p class="">
     {{ section.settings.page.content }}
   </p>
 </div>
-<p>Video below</p> 
-<div class='test'>
-    {{ section.settings.test_video | video_tag: loop: true, autoplay: true, muted: true }}
-</div>
-<!-- <video>
-  <source src="{{ section.settings.test_video |  asset_url }}"  type="video/mp4" />
-  
-</video> -->
+
   
   <!-- <div>
       {% if section.settings.image == blank
