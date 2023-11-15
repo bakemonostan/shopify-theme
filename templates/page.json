@@ -4,9 +4,16 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "dfff3bd5-b86f-4348-bc56-065cc9dc43fd": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Contact form"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "dfff3bd5-b86f-4348-bc56-065cc9dc43fd"
   ]
 }
