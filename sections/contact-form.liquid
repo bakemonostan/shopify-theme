@@ -101,8 +101,9 @@
       </button>
     </div>
   {%- endform -%}
-
-  {{ page.title }}
+  {% if page.tilte == 'contact' %}
+    {{ page.title }}
+  {% endif %}
 </div>
 
 {% schema %}
