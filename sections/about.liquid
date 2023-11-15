@@ -2,16 +2,18 @@
   <div class="template-404 page-width page-margin center">
   <p class="">
     {{ section.settings.page.content }}
-    
- 
   </p>
 </div>
 <p>Video below</p>
+
+
+
+  
 <video>
   <source src=" {{ section.settings.test_video }}"  type="video/mp4" />
 </video>
   
-  <div>
+  <!-- <div>
       {% if section.settings.image == blank
       and section.settings.video_url != blank
       and section.settings.embed_video_url == blank
@@ -48,7 +50,7 @@
         <iframe src="{{ build_embed_video_url }}" allow="autoplay"></iframe>
       </div>
     {% endif %}
-  </div>
+  </div> -->
 </section>
 
 {% schema %}
