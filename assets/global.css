@@ -1050,10 +1050,20 @@
   display: block;
   margin: auto;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4/5;
   -o-object-fit: contain;
   object-fit: cover;
   background-position: center;
+}
+
+@media screen and (min-width: 486px) {
+  .ueq-featured-media-container
+    .ueq-featured-media-wrapper
+    .featured-image-wrapper
+    img {
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
 }
 .ueq-featured-media-container
   .ueq-featured-media-wrapper
@@ -1088,7 +1098,7 @@
 .ueq-product-container .ueq-product-wrapper .product-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 140px;
+  margin-bottom: 40px;
 }
 @media screen and (max-width: 486px) {
   .ueq-product-container .ueq-product-wrapper .product-wrapper {
