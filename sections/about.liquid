@@ -1,40 +1,45 @@
 {% style %}
-    .about_info{
-       width:90%;
-      max-width: 76rem;
-      margin: 0 auto;
-      border: solid 3px;
-      padding: 2rem 0 4rem 0;
-      border-radius: 2rem;
-      margin-top: 4rem;
-    }
+  .about_info {
+    width: 90%;
+    max-width: 76rem;
+    margin: 4rem auto 0;
+    border: solid 3px;
+    padding: 2rem 1rem 4rem;
+    text-align: center;
+    border-radius: 2rem;
+  }
 
-   .about_info p{
+  .about_info p {
     font-weight: smeibold;
-     text-align: center;
-     font-size: 1.2rem;
-   }
+    text-align: center;
+    font-size: 1.2rem;
+  }
 
 
   @media screen and (min-width: 480px) {
+    .about_info {
+      padding: 2rem 3rem 4rem;
+      line-height: 2.8rem;
+    }
+
+
     .about_video {
       height: 70vh;
     }
 
 
-   .about_info p{
-    font-weight: bold;
-     text-align: center;
-     font-size: 1.4rem;
-   }
+    .about_info p {
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.4rem;
+    }
   }
 
 
-
-  .about_video video{
-      width: 100%;
+  .about_video video {
+    width: 100%;
     height: 100%;
-      object-fit: cover;
+    object-fit: cover;
   }
 {% endstyle %}
 
@@ -51,37 +56,34 @@
 </section>
 
 {% schema %}
-{
-  "name": "t:sections.page.name",
-  "tag": "section",
-  "class": "spaced-section",
-  "settings": [
-    {
-      "type": "page",
-      "id": "page",
-      "label": "sections.page.settings.page.label",
-      "info":"sections.page.settings"
-    },
-        {
-      "type": "header",
-      "content": "Add video"
-    },
-
-          {
-      "type": "video",
-      "id": "about_video",
-      "label": "about_video"
-          }
+  {
+    "name": "t:sections.page.name",
+    "tag": "section",
+    "class": "spaced-section",
+    "settings": [
+      {
+        "type": "page",
+        "id": "page",
+        "label": "sections.page.settings.page.label",
+        "info": "sections.page.settings"
+      }, {
+        "type": "header",
+        "content": "Add video"
+      }, {
+        "type": "video",
+        "id": "about_video",
+        "label": "about_video"
+      }
 
 
-  ],
+    ],
 
-  "presets": [
-    {
-      "name": "t:sections.page.presets.name"
-    }
-  ]
-}
+    "presets": [
+      {
+        "name": "t:sections.page.presets.name"
+      }
+    ]
+  }
 {% endschema %}
 
 {% stylesheet %}

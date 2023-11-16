@@ -547,7 +547,7 @@
 }
 .ueq-shop-header-container {
   width: 100%;
-  height: 230px;
+  /* height: 230px; */
   padding-top: 20px;
   z-index: 2;
   transition: all 0.5s ease;
@@ -603,7 +603,7 @@
 }
 .ueq-shop-header-container .header-shop-sub-info .header-shop-menu {
   text-align: start;
-  padding-left: 50px;
+  font-size: 1.4rem;
 }
 .ueq-shop-header-container .header-shop-sub-info .header-shop-menu a,
 .ueq-shop-header-container .header-shop-sub-info .header-shop-menu a:hover,
@@ -628,7 +628,7 @@
 }
 @media screen and (max-width: 486px) {
   .ueq-shop-header-container .header-shop-sub-info .header-shop-menu {
-    padding-left: 20px;
+    padding-left: 50px;
   }
 }
 .ueq-shop-header-container .header-shop-sub-info .mobile-menu-wrapper {
@@ -644,6 +644,7 @@
 @media screen and (max-width: 910px) {
   .ueq-shop-header-container .header-shop-sub-info .mobile-menu-wrapper {
     display: block;
+    padding-left: 20px;
   }
 }
 .ueq-shop-header-container .header-shop-sub-info .header-logo-link {
