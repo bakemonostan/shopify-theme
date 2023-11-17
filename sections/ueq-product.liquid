@@ -8,17 +8,32 @@
   }
 
   .product_video video{
-       width: 47rem;
       object-fit: cover;
       aspect-ratio: 4/5;
   }
 
-  @media screen and (min-width: 55rem) {
+  .product_video_two {
+display: none;
+  }
+
+  .product_video_two video {
+    width: 46.7rem;
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: 50rem) {
+    .product_video_two{
+      margin-top: 2rem;
+      width: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    }
     .product_video {
     padding-left: 9rem;
     width: 45%;
     justify-content: center;
-    display: flex;
+    display: none;
 
     }
       .product_video video{
@@ -132,6 +147,9 @@
             </div>
           </section>
         </div>
+        <div class="product_video_two">
+  {{ section.settings.product_video | video_tag: loop: true, autoplay: true, muted: true }}
+</div>
       </div>
       <div class="product-information-wrapper" id="product-information-wrapper">
         <div id="ProductInfo-{{ section.id }}" class="product__info-container">
