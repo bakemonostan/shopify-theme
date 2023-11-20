@@ -5,9 +5,13 @@
   border-bottom: 0;
 }
 .ueq-header-wrapper fieldset legend {
-  width: 20rem;
+  width: 22rem;
   margin: auto;
   text-align: center;
+}
+.ueq-header-wrapper fieldset legend p {
+  margin: 0;
+  font-size: 0.645rem;
 }
 
 @media screen and (min-width: 40rem) {
@@ -15,21 +19,12 @@
     width: auto;
     padding: 0 20px;
   }
-}
-.ueq-header-wrapper fieldset legend p {
-  margin: 0;
-  font-size: 12px;
-}
-@media screen and (max-width: 425px) {
   .ueq-header-wrapper fieldset legend p {
-    font-size: 10px;
+    margin: 0;
+    font-size: 12px;
   }
 }
-@media screen and (max-width: 397px) {
-  .ueq-header-wrapper fieldset legend p {
-    font-size: 9px;
-  }
-}
+
 .ueq-header-wrapper fieldset legend p:nth-child(2) {
   font-size: 9px;
 }
