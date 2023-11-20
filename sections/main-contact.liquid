@@ -65,14 +65,13 @@
 <div class="contact_form_container">
   {% form 'contact' id: 'contact' %}
     <div>
-      <h3>You can contact us on</h3>
-      <a>office@ultraelectrique.co</a>
+      <h3>{{ section.settings.form_title }}</h3>
+      <a>{{ section.settings.form_email }}</a>
     </div>
 
     <div>
       <p>
-        Get notified about new product arrivals <br>
-        and early releases
+        {{ section.settings.form_description }}
       </p>
     </div>
 
@@ -131,7 +130,27 @@
 {% schema %}
   {
     "name": "Contact Page Form",
-    "settings": []
+    "settings": [
+      {
+        "type": "text",
+        "id": "form_title",
+        "label": "Title for form",
+        "default": "You can contact us on",
+        "info": "Enter the title for the form"
+      }, {
+        "type": "text",
+        "id": "form_email",
+        "label": "Email for form",
+        "default": "office@ultraelectrique.co",
+        "info": "Enter the email for the form"
+      }, {
+        "type": "text",
+        "id": "form_description",
+        "label": "Information for form",
+        "default": "Get notified about new product arrivals and early releases",
+        "info": "Enter the info for the form"
+      }
+    ]
   }
 {% endschema %}
 
