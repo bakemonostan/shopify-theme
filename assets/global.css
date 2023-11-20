@@ -5,10 +5,16 @@
   border-bottom: 0;
 }
 .ueq-header-wrapper fieldset legend {
-  width: auto;
+  width: 20rem;
   margin: auto;
-  padding: 0 20px;
   text-align: center;
+}
+
+@media screen and (min-width: 40rem) {
+  .ueq-header-wrapper fieldset legend {
+    width: auto;
+    padding: 0 20px;
+  }
 }
 .ueq-header-wrapper fieldset legend p {
   margin: 0;
@@ -166,6 +172,7 @@
   height: 100px;
   bottom: 0;
   border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
 }
 .ueq-footer p {
   font-size: 12px;
