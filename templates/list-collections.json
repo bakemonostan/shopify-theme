@@ -20,7 +20,7 @@
     "collections": {
       "type": "ueq-shop-collections",
       "settings": {
-        "collections_list_title": "Collections",
+        "collections_list_title": "",
         "view_all_text": "",
         "list_item_color": "#000000",
         "list_item_hover_color": "#fff056"
