@@ -2,13 +2,12 @@
   "sections": {
     "featured_media": {
       "type": "ueq-featured-media",
-      "disabled": true,
       "settings": {
         "featured_media_title": "",
         "title_color": "#000000",
         "background_color": "#e9e9e9",
         "foreground_color": "#ffffff",
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/d910a4862547497a975b9f716a9d189e.mov",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/5597639db00245ffb5c8eab629c4cae6.mov",
         "embed_video_url": "",
         "autoplay_video": true,
         "controls_video": true,
