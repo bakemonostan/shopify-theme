@@ -6,7 +6,7 @@
       "settings": {
         "featured_media_title": "",
         "title_color": "#000000",
-        "background_color": "#E9E9E9",
+        "background_color": "#e9e9e9",
         "foreground_color": "#ffffff",
         "video_url": "",
         "embed_video_url": "",
@@ -22,7 +22,7 @@
       "type": "ueq-shop-collections",
       "settings": {
         "collections_list_title": "Collections",
-        "view_all_text": "ALL PRODUCTS",
+        "view_all_text": "",
         "list_item_color": "#000000",
         "list_item_hover_color": "#fff056"
       }
