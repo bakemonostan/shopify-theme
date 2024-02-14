@@ -11,7 +11,7 @@
     border-radius: 5px;
   }
 
-  .header-shop-menu .linklist-active{
+  .header-shop-menu .linklist-active {
     background-color: {{ section.settings.menu_hover_color }};
     border: 1px solid black;
     border-radius: 5px;
@@ -39,37 +39,28 @@
 
 {% javascript %}
   // let navbar = document.getElementById("ueq-shop-header-container");
-  // let contentBesidesNav = document.getElementById("content-wrapper");
+// let contentBesidesNav = document.getElementById("content-wrapper");
 
-  // let navPos = navbar.getBoundingClientRect().top;
-  // const navHeight = navbar.clientHeight
+// let navPos = navbar.getBoundingClientRect().top;
+// const navHeight = navbar.clientHeight
 
-  // window.addEventListener("scroll", e => {
-  // let scrollPos = window.scrollY;
-  // if (scrollPos > navHeight) {
-  //     navbar.classList.add('ueq-shop-header-container-sticky');
-  //     contentBesidesNav.style.marginTop = `${navHeight}px`;
-  // } else {
-  //     navbar.classList.remove('ueq-shop-header-container-sticky');
-  //     contentBesidesNav.style.marginTop = "0px"
-  // }
-  // });
+// window.addEventListener("scroll", e => {
+// let scrollPos = window.scrollY;
+// if (scrollPos > navHeight) {
+// navbar.classList.add('ueq-shop-header-container-sticky');
+// contentBesidesNav.style.marginTop = `${navHeight}px`;
+// } else {
+// navbar.classList.remove('ueq-shop-header-container-sticky');
+// contentBesidesNav.style.marginTop = "0px"
+// }
+// });
 
   let gridAuto = document.getElementById('grid-auto-option');
   let gridCol2 = document.getElementById('grid-col2-option');
   let gridCol3 = document.getElementById('grid-col3-option');
   let ProductGridWrapper = document.getElementById('ueq-shop-product-grid-wrapper');
 
-  if (
-    typeof gridAuto != 'undefined' &&
-    gridAuto != null &&
-    typeof gridCol2 != 'undefined' &&
-    gridCol2 != null &&
-    typeof gridCol3 != 'undefined' &&
-    gridCol3 != null &&
-    typeof ProductGridWrapper != 'undefined' &&
-    ProductGridWrapper != null
-  ) {
+  if (typeof gridAuto != 'undefined' && gridAuto != null && typeof gridCol2 != 'undefined' && gridCol2 != null && typeof gridCol3 != 'undefined' && gridCol3 != null && typeof ProductGridWrapper != 'undefined' && ProductGridWrapper != null) {
     gridAuto.addEventListener('click', (e) => {
       gridAuto.classList.add('selected');
       gridCol2.classList.remove('selected');
@@ -125,9 +116,8 @@
             <a
               href="{{ link.url }}"
               {% if link.active %}
-                class="linklist-active"
-              {% endif %}
-            >
+              class="linklist-active"
+              {% endif %}>
               {{- link.title -}}
             </a>
           {% endfor %}
@@ -136,7 +126,7 @@
           {% include 'ueq-icon-mobile-hamburger' %}
         </div>
       </div>
-      <a class="header-logo-link" href="{{ section.settings.logo_page_url }}">
+      <a class="header-logo-link" href="/">
         <h1 class="header-sub-title">
           {{ section.settings.title }}
         </h1>
@@ -148,7 +138,10 @@
           </a>
         </div>
         <div class="cart-icon">
-          <a class="ueq-cart-link" id="ueq-cart-link" href="{{ routes.cart_url }}">
+          <a
+            class="ueq-cart-link"
+            id="ueq-cart-link"
+            href="{{ routes.cart_url }}">
             {% include 'icon-checkout' %}
             {%- if cart != empty -%}
               <div class="ueq-cart-count-bubble" id="ueq-cart-count-bubble">
@@ -229,86 +222,78 @@
 {% endif %}
 
 {% schema %}
-{
-  "name": "Header settings",
-  "class": "UEQ Sections",
-  "settings": [
-    {
-      "type": "header",
-      "content": "UEQ Shop header settings"
-    },
-    {
-      "type": "text",
-      "id": "copyright_statement",
-      "label": "Copyright text",
-      "default": "Copyright 2021 ultrA electriquE industries",
-      "info": "Enter copyright statement"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Enter title for page",
-      "default": "UltrA ElectriquE",
-      "info": "Enter text"
-    },
-    {
-      "type": "url",
-      "id": "logo_page_url",
-      "label": "Add logo link"
-    },
-    {
-      "type": "text",
-      "id": "sub_extra_text",
-      "label": "Text for the sub extras",
-      "default": "33°12`08.9`N 87°07`52.0`W",
-      "info": "Enter text for the sub extras"
-    },
-    {
-      "type": "color",
-      "id": "shop_header_color",
-      "label": "Pick a color",
-      "default": "#ffffff",
-      "info": "Color of header background"
-    },
-    {
-      "type": "color",
-      "id": "title_color",
-      "label": "Pick a color",
-      "default": "#fff056",
-      "info": "Color of title"
-    },
-    {
-      "type": "color",
-      "id": "menu_hover_color",
-      "label": "Pick a color",
-      "default": "#fff056",
-      "info": "Color of hover on menu items"
-    },
-    {
-      "type": "color",
-      "id": "header_deco",
-      "label": "Pick a color",
-      "default": "#fff056",
-      "info": "Color of bottom stroke on header"
-    },
-    {
-      "type": "color",
-      "id": "cart_bubble_color",
-      "label": "Pick a color",
-      "default": "#000000",
-      "info": "Color of cart bubble"
-    },
-    {
-      "type": "color",
-      "id": "cart_bubble_text_color",
-      "label": "Pick a color",
-      "default": "#ffffff",
-      "info": "Color of text inside cart bubble"
-    },
-    {
-      "type": "paragraph",
-      "content": "Developed by DigitalDepth"
-    }
-  ]
-}
+  {
+    "name": "Header settings",
+    "class": "UEQ Sections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "UEQ Shop header settings"
+      },
+      {
+        "type": "text",
+        "id": "copyright_statement",
+        "label": "Copyright text",
+        "default": "Copyright 2021 ultrA electriquE industries",
+        "info": "Enter copyright statement"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Enter title for page",
+        "default": "UltrA ElectriquE",
+        "info": "Enter text"
+      },
+      {
+        "type": "url",
+        "id": "logo_page_url",
+        "label": "Add logo link"
+      }, {
+        "type": "text",
+        "id": "sub_extra_text",
+        "label": "Text for the sub extras",
+        "default": "33°12`08.9`N 87°07`52.0`W",
+        "info": "Enter text for the sub extras"
+      }, {
+        "type": "color",
+        "id": "shop_header_color",
+        "label": "Pick a color",
+        "default": "#ffffff",
+        "info": "Color of header background"
+      }, {
+        "type": "color",
+        "id": "title_color",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of title"
+      }, {
+        "type": "color",
+        "id": "menu_hover_color",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of hover on menu items"
+      }, {
+        "type": "color",
+        "id": "header_deco",
+        "label": "Pick a color",
+        "default": "#fff056",
+        "info": "Color of bottom stroke on header"
+      }, {
+        "type": "color",
+        "id": "cart_bubble_color",
+        "label": "Pick a color",
+        "default": "#000000",
+        "info": "Color of cart bubble"
+      }, {
+        "type": "color",
+        "id": "cart_bubble_text_color",
+        "label": "Pick a color",
+        "default": "#ffffff",
+        "info": "Color of text inside cart bubble"
+      }, {
+        "type": "paragraph",
+        "content": "Developed by DigitalDepth"
+      }
+    ]
+  }
 {% endschema %}

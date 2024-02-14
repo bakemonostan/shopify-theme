@@ -5,14 +5,14 @@
       "settings": {
         "featured_media_title": "",
         "title_color": "#000000",
-        "background_color": "#e9e9e9",
+        "background_color": "#E9E9E9",
         "foreground_color": "#ffffff",
         "image": "shopify:\/\/shop_images\/IMG_2016.jpg",
         "video_url": "",
         "embed_video_url": "",
         "autoplay_video": true,
         "controls_video": true,
-        "mute_video": false,
+        "mute_video": true,
         "loop_video": true,
         "featured_media_url": "",
         "url_new_tab": true
@@ -22,15 +22,15 @@
       "type": "ueq-shop-collection",
       "settings": {
         "show_collection_title": false,
-        "product_border_color": "#e9e9e9",
+        "product_border_color": "#E9E9E9",
         "product_border_color_hover": "#000000",
-        "product_information_background_color": "#e9e9e9",
+        "product_information_background_color": "#E9E9E9",
         "product_information_foreground_color": "#ffffff",
-        "product_information_text_color": "#e9e9e9",
+        "product_information_text_color": "#E9E9E9",
         "product_information_text_color_hover": "#000000",
         "product_sold_out_text": "SOLD OUT",
-        "price_reduction_color": "#ee1c1c",
-        "price_reduction_color_hover": "#ee1c1c"
+        "price_reduction_color": "#Ee1c1c",
+        "price_reduction_color_hover": "#Ee1c1c"
       }
     }
   },

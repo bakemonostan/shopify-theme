@@ -5,26 +5,25 @@
   border-bottom: 0;
 }
 .ueq-header-wrapper fieldset legend {
-  width: 22rem;
+  width: auto;
   margin: auto;
+  padding: 0 20px;
   text-align: center;
 }
 .ueq-header-wrapper fieldset legend p {
   margin: 0;
-  font-size: 0.645rem;
+  font-size: 12px;
 }
-
-@media screen and (min-width: 40rem) {
-  .ueq-header-wrapper fieldset legend {
-    width: auto;
-    padding: 0 20px;
-  }
+@media screen and (max-width: 425px) {
   .ueq-header-wrapper fieldset legend p {
-    margin: 0;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
-
+@media screen and (max-width: 397px) {
+  .ueq-header-wrapper fieldset legend p {
+    font-size: 9px;
+  }
+}
 .ueq-header-wrapper fieldset legend p:nth-child(2) {
   font-size: 9px;
 }
@@ -167,7 +166,6 @@
   height: 100px;
   bottom: 0;
   border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 60px;
 }
 .ueq-footer p {
   font-size: 12px;
@@ -549,7 +547,7 @@
 }
 .ueq-shop-header-container {
   width: 100%;
-  /* height: 230px; */
+  height: 230px;
   padding-top: 20px;
   z-index: 2;
   transition: all 0.5s ease;
@@ -605,7 +603,7 @@
 }
 .ueq-shop-header-container .header-shop-sub-info .header-shop-menu {
   text-align: start;
-  font-size: 1.4rem;
+  padding-left: 50px;
 }
 .ueq-shop-header-container .header-shop-sub-info .header-shop-menu a,
 .ueq-shop-header-container .header-shop-sub-info .header-shop-menu a:hover,
@@ -646,7 +644,6 @@
 @media screen and (max-width: 910px) {
   .ueq-shop-header-container .header-shop-sub-info .mobile-menu-wrapper {
     display: block;
-    padding-left: 20px;
   }
 }
 .ueq-shop-header-container .header-shop-sub-info .header-logo-link {
@@ -708,7 +705,7 @@
     .header-shop-sub-info
     .header-shop-customer
     :nth-child(2) {
-    padding-left: 20px;
+    /* padding-left: 20px; */
   }
   .ueq-shop-header-container
     .header-shop-sub-info
@@ -952,8 +949,12 @@
   .product-information-container
   .product-information-wrapper {
   border-radius: 8px;
-  padding: 0 30px;
-  height: 60px;
+  padding: 1rem;
+  /* height: 60px; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .ueq-shop-collection-container
   .ueq-shop-product-grid-wrapper
@@ -974,7 +975,7 @@
   .product-wrapper
   .product-information-container
   .product-title {
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 .ueq-shop-collection-container
   .ueq-shop-product-grid-wrapper
@@ -1052,21 +1053,10 @@
   display: block;
   margin: auto;
   width: 100%;
-  padding: 0 0 2rem;
-  aspect-ratio: 4/5;
+  height: 100%;
   -o-object-fit: contain;
   object-fit: cover;
   background-position: center;
-}
-
-@media screen and (min-width: 486px) {
-  .ueq-featured-media-container
-    .ueq-featured-media-wrapper
-    .featured-image-wrapper
-    img {
-    height: 100%;
-    aspect-ratio: 1/1;
-  }
 }
 .ueq-featured-media-container
   .ueq-featured-media-wrapper
@@ -1101,7 +1091,7 @@
 .ueq-product-container .ueq-product-wrapper .product-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 40px;
+  margin-bottom: 140px;
 }
 @media screen and (max-width: 486px) {
   .ueq-product-container .ueq-product-wrapper .product-wrapper {
@@ -1586,7 +1576,11 @@ body {
 .content-for-layout {
   /* height: 100vh; */
 }
-.template-404 h1 {
+.template-404 h1 , 
+.product-recommendations__heading, 
+.title-wrapper-with-link h1, 
+.totals__subtotal, 
+.main-page-title  {
   font-family: "Zekton";
 }
 .no-select {

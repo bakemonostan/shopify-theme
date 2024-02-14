@@ -2,16 +2,17 @@
   "sections": {
     "featured_media": {
       "type": "ueq-featured-media",
+      "disabled": true,
       "settings": {
         "featured_media_title": "",
         "title_color": "#000000",
-        "background_color": "#e9e9e9",
+        "background_color": "#E9E9E9",
         "foreground_color": "#ffffff",
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/5597639db00245ffb5c8eab629c4cae6.mov",
+        "video_url": "",
         "embed_video_url": "",
         "autoplay_video": true,
         "controls_video": true,
-        "mute_video": false,
+        "mute_video": true,
         "loop_video": true,
         "featured_media_url": "",
         "url_new_tab": true
@@ -20,8 +21,8 @@
     "collections": {
       "type": "ueq-shop-collections",
       "settings": {
-        "collections_list_title": "",
-        "view_all_text": "",
+        "collections_list_title": "Collections",
+        "view_all_text": "ALL PRODUCTS",
         "list_item_color": "#000000",
         "list_item_hover_color": "#fff056"
       }

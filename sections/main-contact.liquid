@@ -14,11 +14,13 @@
   .contact_form_container h3,
   .contact_form_container a,
   .contact_form_container p {
+    font-weight: bold;
     color: black;
+    font-family: "Zekton";
   }
 
   .contact_form_container h3 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .contact_form_container a {
@@ -27,7 +29,7 @@
     font-size: 1.8rem;
   }
   .contact_form_container p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .field {
@@ -38,40 +40,32 @@
     width: 100%;
   }
 
-  @media screen and (min-width: 580px) {
-
-    .contact_form_container form {
-      padding: 1.5rem 8rem 4rem
-    }
+  @media screen and (min-width: 480px) {
     .contact_form_container {
       max-width: 60rem;
+      padding: 1rem 10rem;
       border-radius: 4rem;
     }
 
     .contact_form_container a {
       font-size: 2.5rem;
     }
-
-    .contact_form_container h3 {
-      font-size: 3rem;
-    }
-    .contact_form_container p {
-      font-size: 1.5rem;
-    }
-
   }
 {% endstyle %}
 
 <div class="contact_form_container">
   {% form 'contact' id: 'contact' %}
     <div>
-      <h3>{{ section.settings.form_title }}</h3>
-      <a>{{ section.settings.form_email }}</a>
+      <h3>You can contact us on</h3>
+      <h4>
+        {{ section.settings.form_heading }}</h4>
+      <a>office@ultraelectrique.co</a>
     </div>
 
     <div>
       <p>
-        {{ section.settings.form_description }}
+        Get notified about new product arrivals <br>
+        and early releases
       </p>
     </div>
 
@@ -130,27 +124,7 @@
 {% schema %}
   {
     "name": "Contact Page Form",
-    "settings": [
-      {
-        "type": "text",
-        "id": "form_title",
-        "label": "Title for form",
-        "default": "You can contact us on",
-        "info": "Enter the title for the form"
-      }, {
-        "type": "text",
-        "id": "form_email",
-        "label": "Email for form",
-        "default": "office@ultraelectrique.co",
-        "info": "Enter the email for the form"
-      }, {
-        "type": "text",
-        "id": "form_description",
-        "label": "Information for form",
-        "default": "Get notified about new product arrivals and early releases",
-        "info": "Enter the info for the form"
-      }
-    ]
+    "settings": []
   }
 {% endschema %}
 
