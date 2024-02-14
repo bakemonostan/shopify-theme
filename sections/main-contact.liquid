@@ -29,7 +29,7 @@
     font-size: 1.8rem;
   }
   .contact_form_container p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .field {
@@ -56,16 +56,18 @@
 <div class="contact_form_container">
   {% form 'contact' id: 'contact' %}
     <div>
-      <h3>You can contact us on</h3>
-      <h4>
-        {{ section.settings.heading }}</h4>
+      <h3>
+        {{ section.settings.heading }}</h3>
       <a>office@ultraelectrique.co</a>
     </div>
 
     <div>
       <p>
-        Get notified about new product arrivals <br>
-        and early releases
+        {% comment %} Get notified about new product arrivals <br>
+                                        and early releases {% endcomment %}
+        {{
+          section.settings.subtext
+        }}
       </p>
     </div>
 
@@ -115,7 +117,8 @@
 
     <div class="">
       <button type="submit" class="button">
-        {{ 'templates.contact.form.sign_up_for_updates' | t }}
+        {% comment %} {{ 'templates.contact.form.sign_up_for_updates' | t }} {% endcomment %}
+        {{ section.settings.button }}
       </button>
     </div>
   {% endform %}
@@ -129,7 +132,26 @@
         "type": "text",
         "id": "heading",
         "label": "Contact form heading",
-        "info": "Change heading text"
+        "info": "Change heading text",
+        "default": "You can contact us on:"
+      }, {
+        "type": "text",
+        "id": "email",
+        "label": "Contact form email",
+        "info": "Change email text",
+        "default": "Email"
+      }, {
+        "type": "text",
+        "id": "button",
+        "label": "Contact form button",
+        "info": "Change button text",
+        "default": "Sign up for updates"
+      }, {
+        "type": "text",
+        "id": "subtext",
+        "label": "Contact form subtext",
+        "info": "Change subtext text",
+        "default": "Get notified about new product arrivals and early releases"
       }
     ]
   }
